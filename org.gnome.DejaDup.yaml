@@ -64,6 +64,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup
-        branch: stable
         tag: '40.3'
         commit: e63f2b311c31b4c54d910fed505cea3ab2ec4434
