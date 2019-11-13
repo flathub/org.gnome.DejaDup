@@ -44,10 +44,13 @@ modules:
       - python3 setup.py install --prefix /app
     sources:
       - type: archive
-        url: https://launchpad.net/duplicity/0.8-series/0.8.05/+download/duplicity-0.8.05.tar.gz
-        sha256: 064672cf492003ff05f2d7ca8493d12af86de06aa1c60d77ac8dd74b2da3111d
+        url: https://launchpad.net/duplicity/0.8-series/0.8.06/+download/duplicity-0.8.06.tar.gz
+        sha256: aee3450cfd41a4dc4fe7c832ae33a0e70f1b0f37197c754f429ce0e91cdd51a4
       - type: patch
         path: ./python3.patch
+        strip-components: 0
+      - type: patch
+        path: ./pydrive.patch
         strip-components: 0
 
 
@@ -56,7 +59,11 @@ modules:
 
   - name: deja-dup
     buildsystem: meson
+    config-opts:
+      - --buildtype=release
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup
-        commit: 6b7129515d7575a3038c9acc56d95cadc7c51b1a
+        branch: stable
+        tag: '40.3'
+        commit: e63f2b311c31b4c54d910fed505cea3ab2ec4434
