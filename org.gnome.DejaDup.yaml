@@ -10,7 +10,7 @@ sdk: org.gnome.Sdk
 command: deja-dup
 
 finish-args:
-  - --filesystem=home
+  - --filesystem=host
   - --share=ipc
   - --share=network
   - --socket=fallback-x11
