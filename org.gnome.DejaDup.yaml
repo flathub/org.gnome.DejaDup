@@ -19,12 +19,10 @@ finish-args:
   - --talk-name=org.gtk.vfs.*
 
 modules:
-  - ./fasteners.yaml
-  - ./future.yaml
-
   - name: lib2to3  # needed for past module (from future module)
     buildsystem: simple
     build-commands:
+      - mkdir -p /app/lib/python3.7/site-packages/
       - cp -r Lib/lib2to3 /app/lib/python3.7/site-packages/
     sources:
       - type: git
@@ -40,15 +38,7 @@ modules:
         tag: v2.2.1
         commit: 5917692418657dc78c9cbde3a8db4c85f25b9c8d
 
-  - name: duplicity
-    buildsystem: simple
-    build-commands:
-      - python3 setup.py build
-      - python3 setup.py install --prefix /app
-    sources:
-      - type: archive
-        url: https://launchpad.net/duplicity/0.8-series/0.8.09/+download/duplicity-0.8.09.tar.gz
-        sha256: 4e10c6fa5cc02592c9fe1f318b27b66242a2e74c03c2149b9b9b9365acebd105
+  - ./duplicity.yaml
 
 
   - ./pydrive.yaml
