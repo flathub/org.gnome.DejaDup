@@ -41,8 +41,8 @@ sources:
     url: https://files.pythonhosted.org/packages/02/e5/38518af393f7c214357079ce67a317307936896e961e35450b70fad2a9cf/rsa-4.0-py2.py3-none-any.whl
     sha256: 14ba45700ff1ec9eeb206a2ce76b32814958a98e372006c8fb76ba820211be66
   - type: file
-    url: https://files.pythonhosted.org/packages/8e/4b/025a7338bb2d4a2c61f0e530b79aafc29d112ed8e61333a6dd9ba48f3bab/httplib2-0.17.0-py3-none-any.whl
-    sha256: 79751cc040229ec896aa01dced54de0cd0bf042f928e84d5761294422dde4454
+    url: https://files.pythonhosted.org/packages/be/83/5e006e25403871ffbbf587c7aa4650158c947d46e89f2d50dcaf018464de/httplib2-0.15.0-py3-none-any.whl
+    sha256: 1d1f4ad7a6e55d325830ab274190f98894e069850a871fac19921caf4363259d
   - type: file
     url: https://files.pythonhosted.org/packages/08/6a/abf83cb951617793fd49c98cb9456860f5df66ff89883c8660aa0672d425/cachetools-4.0.0-py3-none-any.whl
     sha256: b304586d357c43221856be51d73387f93e2a961598a9b6b6670664746f3b6c6c
