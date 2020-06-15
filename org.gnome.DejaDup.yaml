@@ -26,7 +26,7 @@ modules:
       - cp -r Lib/lib2to3 /app/lib/python3.7/site-packages/
     sources:
       - type: git
-        url: https://github.com/python/cpython
+        url: https://github.com/python/cpython.git
         tag: v3.8.0
         commit: fa919fdf2583bdfead1df00e842f24f30b2a34bf
 
@@ -34,7 +34,7 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: git
-        url: https://github.com/librsync/librsync
+        url: https://github.com/librsync/librsync.git
         tag: v2.2.1
         commit: 5917692418657dc78c9cbde3a8db4c85f25b9c8d
 
@@ -50,6 +50,6 @@ modules:
       - --buildtype=release
     sources:
       - type: git
-        url: https://gitlab.gnome.org/World/deja-dup
-        tag: '40.6'
-        commit: bf75273ea0c4812ee7adec5a482c397d8f123ee2
+        url: https://gitlab.gnome.org/World/deja-dup.git
+        tag: '40.7'
+        commit: 430f8a2703ce6cafb34100d73419951ab4b3a03c
