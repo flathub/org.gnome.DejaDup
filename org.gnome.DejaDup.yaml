@@ -5,7 +5,7 @@
 ---
 app-id: org.gnome.DejaDup
 runtime: org.gnome.Platform
-runtime-version: '3.34'
+runtime-version: '3.36'
 sdk: org.gnome.Sdk
 command: deja-dup
 
@@ -44,6 +44,17 @@ modules:
   - ./pydrive.yaml
 
 
+  - name: libhandy
+    buildsystem: meson
+    config-opts:
+      - -Dexamples=false
+      - -Dtests=false
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libhandy.git
+        tag: v0.0.13
+        commit: 7a193d7692c9c76a1a94f17c4d30b585f77d177c
+
   - name: deja-dup
     buildsystem: meson
     config-opts:
@@ -51,5 +62,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        tag: '40.7'
-        commit: 430f8a2703ce6cafb34100d73419951ab4b3a03c
+        tag: '42.0'
+        commit: 04a9d650e1661db754e40c5ed148a9d9fdfd3a06
