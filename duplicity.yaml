@@ -4,9 +4,12 @@
 name: python3-duplicity
 buildsystem: simple
 build-commands:
-  - pip3 install --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST}
-    duplicity
+  - pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST}
+    "duplicity"
 sources:
+  - type: file
+    url: https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+    sha256: 8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced
   - type: file
     url: https://files.pythonhosted.org/packages/ac/aa/063eca6a416f397bd99552c534c6d11d57f58f2e94c14780f3bbf818c4cf/monotonic-1.5-py2.py3-none-any.whl
     sha256: 552a91f381532e33cbd07c6a2655a21908088962bb8fa7239ecbcc6ad1140cc7
@@ -17,8 +20,5 @@ sources:
     url: https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz
     sha256: b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d
   - type: file
-    url: https://files.pythonhosted.org/packages/01/c7/8984022e180ee194aabb8f58e6fdcf43509c8395979ac53857ad74ec6b1e/duplicity-0.8.12.1618.tar.gz
-    sha256: 2a0bfb7b5226021a60d27115ef090fd323673c62f7f56e2d2e1cabad2dc196b7
-  - type: file
-    url: https://files.pythonhosted.org/packages/65/eb/1f97cb97bfc2390a276969c6fae16075da282f5058082d4cb10c6c5c1dba/six-1.14.0-py2.py3-none-any.whl
-    sha256: 8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c
+    url: https://files.pythonhosted.org/packages/bd/43/b6a891c2198ddf37f835a10643feafa09800a81dde2bfac6cb2d97ae8f5c/duplicity-0.8.14.tar.gz
+    sha256: 73ff92b8888abdf571d0b895bae11cd7fc10a8ceaa5a5fe29d83a04a9909b88d

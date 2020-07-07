@@ -19,25 +19,15 @@ finish-args:
   - --talk-name=org.gtk.vfs.*
 
 modules:
-  - name: lib2to3  # needed for past module (from future module)
-    buildsystem: simple
-    build-commands:
-      - mkdir -p /app/lib/python3.7/site-packages/
-      - cp -r Lib/lib2to3 /app/lib/python3.7/site-packages/
-    sources:
-      - type: git
-        url: https://github.com/python/cpython.git
-        tag: v3.8.0
-        commit: fa919fdf2583bdfead1df00e842f24f30b2a34bf
-
   - name: librsync
     buildsystem: cmake-ninja
     sources:
       - type: git
         url: https://github.com/librsync/librsync.git
-        tag: v2.2.1
-        commit: 5917692418657dc78c9cbde3a8db4c85f25b9c8d
+        tag: v2.3.1
+        commit: 27f738650c20fef1285f11d85a34e5094a71c06f
 
+  - ./setuptools-scm.yaml
   - ./duplicity.yaml
 
 

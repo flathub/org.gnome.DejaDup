@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: Michael Terry
+---
+name: python3-setuptools-scm
+buildsystem: simple
+build-commands:
+  - pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST}
+    "setuptools-scm"
+sources:
+  - type: file
+    url: https://files.pythonhosted.org/packages/8b/0f/5f135746c4d0c95fcc3c9a30ac942330bbdf092879ccaae7e3dcba6ea214/setuptools-49.1.0.zip
+    sha256: 60351853f8c093ef57224695ee989d5d074168f6b93dae000fa9996072adaba3
+  - type: file
+    url: https://files.pythonhosted.org/packages/ad/d3/e54f8b4cde0f6fb4f231629f570c1a33ded18515411dee6df6fe363d976f/setuptools_scm-4.1.2-py2.py3-none-any.whl
+    sha256: 69258e2eeba5f7ce1ed7a5f109519580fa3578250f8e4d6684859f86d1b15826
