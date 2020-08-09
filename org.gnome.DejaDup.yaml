@@ -11,6 +11,7 @@ command: deja-dup
 
 finish-args:
   - --filesystem=host
+  - --filesystem=~/.var/app/
   - --share=ipc
   - --share=network
   - --socket=fallback-x11
