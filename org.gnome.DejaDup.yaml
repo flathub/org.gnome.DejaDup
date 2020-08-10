@@ -53,5 +53,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        tag: '42.1'
-        commit: 488fbaf22f26b273ef08014a49e3bc75e073f0b1
+        tag: '42.2'
+        commit: f0bf39e7309b64ebe4f328f1a97ec0d88cb8aa69
