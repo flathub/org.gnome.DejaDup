@@ -20,5 +20,5 @@ sources:
     url: https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz
     sha256: b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d
   - type: file
-    url: https://files.pythonhosted.org/packages/a4/07/fb63555a3381091b22a399569478c212f8e5dbb46717ae93b5613ee1d13d/duplicity-0.8.15.dev25.tar.gz
-    sha256: 2f6d1d8974b516f5b6b2a980446cf075a25b5a7857b98ae0ccfd603af6a5460a
+    url: https://files.pythonhosted.org/packages/66/65/091cfdb2367cfd8953bc9e7b803b1b53b422d2a6e24426bf97514f4c76cb/duplicity-0.8.16.dev17.tar.gz
+    sha256: fc207ebe252d87407e6ae295df894e4c6beff9def69b9a597cd9b579880cdcbc
