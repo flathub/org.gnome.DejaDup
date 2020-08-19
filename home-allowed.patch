@@ -1,0 +1,19 @@
+commit 896b8db91a8551e262694378e665c9df9fc378e9
+Author: Michael Terry <mike@mterry.name>
+Date:   Wed Aug 19 13:28:18 2020 -0400
+
+    flatpak: always allow access to your home dir
+
+diff --git a/libdeja/InstallEnvFlatpak.vala b/libdeja/InstallEnvFlatpak.vala
+index bf870dca..441a22d3 100644
+--- a/libdeja/InstallEnvFlatpak.vala
++++ b/libdeja/InstallEnvFlatpak.vala
+@@ -58,7 +58,7 @@ class DejaDup.InstallEnvFlatpak : DejaDup.InstallEnv
+     string[] hidden = { "/lib", "/lib32", "/lib64", "/bin", "/sbin", "/usr",
+                         "/boot", "/root", "/tmp", "/etc", "/app", "/run",
+                         "/proc", "/sys", "/dev", "/var" };
+-    string[] allowed = { "/run/media" };
++    string[] allowed = { "/run/media", Environment.get_home_dir() };
+ 
+     foreach (var f in allowed) {
+       var ffile = File.new_for_path(f);

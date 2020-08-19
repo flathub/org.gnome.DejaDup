@@ -30,8 +30,6 @@ modules:
 
   - ./setuptools-scm.yaml
   - ./duplicity.yaml
-
-
   - ./pydrive.yaml
 
 
@@ -54,3 +52,5 @@ modules:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
         commit: abf7754656edad199156d39c00def08c2c1ca932
+      - type: patch
+        path: home-allowed.patch
