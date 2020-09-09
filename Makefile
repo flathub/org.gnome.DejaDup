@@ -9,7 +9,7 @@ flatpak:
 	                --force-clean \
 	                builddir \
 	                org.gnome.DejaDup.yaml
-	flatpak update --user -y org.gnome.DejaDup
+	flatpak install --or-update --user -y org.gnome.DejaDup
 
 .PHONY: clean
 clean:
