@@ -53,3 +53,5 @@ modules:
         url: https://gitlab.gnome.org/World/deja-dup.git
         tag: '42.4'
         commit: 3308e442bcbe68f5831efab2eff819e819a6685e
+      - type: patch
+        path: exclude-cache.patch
