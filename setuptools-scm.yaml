@@ -8,8 +8,8 @@ build-commands:
     "setuptools-scm"
 sources:
   - type: file
-    url: https://files.pythonhosted.org/packages/8b/0f/5f135746c4d0c95fcc3c9a30ac942330bbdf092879ccaae7e3dcba6ea214/setuptools-49.1.0.zip
-    sha256: 60351853f8c093ef57224695ee989d5d074168f6b93dae000fa9996072adaba3
+    url: https://files.pythonhosted.org/packages/6d/38/c21ef5034684ffc0412deefbb07d66678332290c14bb5269c85145fbd55e/setuptools-50.3.2-py3-none-any.whl
+    sha256: 2c242a0856fbad7efbe560df4a7add9324f340cf48df43651e9604924466794a
   - type: file
     url: https://files.pythonhosted.org/packages/ad/d3/e54f8b4cde0f6fb4f231629f570c1a33ded18515411dee6df6fe363d976f/setuptools_scm-4.1.2-py2.py3-none-any.whl
     sha256: 69258e2eeba5f7ce1ed7a5f109519580fa3578250f8e4d6684859f86d1b15826

@@ -1,0 +1,93 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: Michael Terry
+---
+name: python3-pydrive2
+buildsystem: simple
+build-commands:
+  - pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST}
+    "pydrive2"
+sources:
+  - type: file
+    url: https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz
+    sha256: b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d
+  - type: file
+    url: https://files.pythonhosted.org/packages/62/1e/a94a8d635fa3ce4cfc7f506003548d0a2447ae76fd5ca53932970fe3053f/pyasn1-0.4.8-py2.py3-none-any.whl
+    sha256: 39c7e2ec30515947ff4e87fb6f456dfc6e84857d34be479c9d4a4ba4bf46aa5d
+  - type: file
+    url: https://files.pythonhosted.org/packages/1f/cf/724b6436967a8be879c8de16b09fd80e0e7b0bcad462f5c09ee021605785/google_auth-1.22.1-py2.py3-none-any.whl
+    sha256: 712dd7d140a9a1ea218e5688c7fcb04af71b431a29ec9ce433e384c60e387b98
+  - type: file
+    url: https://files.pythonhosted.org/packages/25/ef/8f36bc7e4c3dcad241a9e7a51520d30712a7abc034343bed841ff4ea3289/protobuf-3.13.0.tar.gz
+    sha256: 6a82e0c8bb2bf58f606040cc5814e07715b2094caeba281e2e7d0b0e2e397db5
+  - type: file
+    url: https://files.pythonhosted.org/packages/5d/4b/7bb135c5787c003cdbc44990c5f41908f0f37135e0bb554e880d90fd5f6f/cryptography-3.1.1.tar.gz
+    sha256: 9d9fc6a16357965d282dd4ab6531013935425d0dc4950df2e0cf2a1b1ac1017d
+  - type: file
+    url: https://files.pythonhosted.org/packages/cd/5c/f3aa86b6d5482f3051b433c7616668a9b96fbe49a622210e2c9781938a5c/cachetools-4.1.1-py3-none-any.whl
+    sha256: 513d4ff98dd27f85743a8dc0e92f55ddb1b49e060c2d5961512855cda2c01a98
+  - type: file
+    url: https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+    sha256: 8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced
+  - type: file
+    url: https://files.pythonhosted.org/packages/45/1e/0c169c6a5381e241ba7404532c16a21d86ab872c9bed8bdcd4c423954103/requests-2.24.0-py2.py3-none-any.whl
+    sha256: fe75cc94a9443b9246fc7049224f75604b113c36acb93f87b80ed42c44cbb898
+  - type: file
+    url: https://files.pythonhosted.org/packages/1c/df/c3587a667d6b308fadc90b99e8bc8774788d033efcc70f4ecaae7fad144b/rsa-4.6-py3-none-any.whl
+    sha256: 6166864e23d6b5195a5cfed6cd9fed0fe774e226d8f854fcb23b7bbef0350233
+  - type: file
+    url: https://files.pythonhosted.org/packages/03/3c/a90e888bb06ef7545f76328baee9c629d9b4072291f9d7c592fd388f6d64/PyDrive2-1.6.2-py2.py3-none-any.whl
+    sha256: 22f17c02d24e98f5a01621c8ba6f451bd8ed1049c63472568e6ebbb2ed114156
+  - type: file
+    url: https://files.pythonhosted.org/packages/5e/c4/6c4fe722df5343c33226f0b4e0bb042e4dc13483228b4718baf286f86d87/certifi-2020.6.20-py2.py3-none-any.whl
+    sha256: 8fc0819f1f30ba15bdb34cceffb9ef04d99f420f68eb75d901e9560b8749fc41
+  - type: file
+    url: https://files.pythonhosted.org/packages/bf/0c/60d82c077998feb631608dca3cc1fe19ac074e772bf0c24cf409b977b815/uritemplate-3.0.1-py2.py3-none-any.whl
+    sha256: 07620c3f3f8eed1f12600845892b0e036a2420acf513c53f7de0abd911a5894f
+  - type: file
+    url: https://files.pythonhosted.org/packages/95/de/214830a981892a3e286c3794f41ae67a4495df1108c3da8a9f62159b9a9d/pyasn1_modules-0.2.8-py2.py3-none-any.whl
+    sha256: a50b808ffeb97cb3601dd25981f6b016cbb3d31fbf57a8b8a87428e6158d0c74
+  - type: file
+    url: https://files.pythonhosted.org/packages/bc/a9/01ffebfb562e4274b6487b4bb1ddec7ca55ec7510b22e4c51f14098443b8/chardet-3.0.4-py2.py3-none-any.whl
+    sha256: fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691
+  - type: file
+    url: https://files.pythonhosted.org/packages/6d/38/c21ef5034684ffc0412deefbb07d66678332290c14bb5269c85145fbd55e/setuptools-50.3.2-py3-none-any.whl
+    sha256: 2c242a0856fbad7efbe560df4a7add9324f340cf48df43651e9604924466794a
+  - type: file
+    url: https://files.pythonhosted.org/packages/95/a9/4f25a14d23f0786b64875b91784607c2277eff25d48f915e39ff0cff505a/oauth2client-4.1.3-py2.py3-none-any.whl
+    sha256: b8a81cc5d60e2d364f0b1b98f958dbd472887acaf1a5b05e21c28c31a2d6d3ac
+  - type: file
+    url: https://files.pythonhosted.org/packages/cb/ae/380e33d621ae301770358eb11a896a34c34f30db188847a561e8e39ee866/cffi-1.14.3.tar.gz
+    sha256: f92f789e4f9241cd262ad7a555ca2c648a98178a953af117ef7fad46aa1d5591
+  - type: file
+    url: https://files.pythonhosted.org/packages/b3/ad/d9d9331850ea5bd4f5cb8c650c0bfa119a4abd6b0ad7c45b6506bc979fc0/httplib2-0.18.1-py3-none-any.whl
+    sha256: ca2914b015b6247791c4866782fa6042f495b94401a0f0bd3e1d6e0ba2236782
+  - type: file
+    url: https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl
+    sha256: b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0
+  - type: file
+    url: https://files.pythonhosted.org/packages/2e/3d/d7af13040ab5b259994a4434ff03d68084a994e709bc8afa4bee1235310e/google_api_core-1.23.0-py2.py3-none-any.whl
+    sha256: 94d8c707d358d8d9e8b0045c42be20efb58433d308bd92cf748511c7825569c8
+  - type: file
+    url: https://files.pythonhosted.org/packages/bd/4e/992849016f8b0c27fb604aafd0a7a724db16128906197bd1245c6f18e6a1/google_auth_httplib2-0.0.4-py2.py3-none-any.whl
+    sha256: aeaff501738b289717fac1980db9711d77908a6c227f60e4aa1923410b43e2ee
+  - type: file
+    url: https://files.pythonhosted.org/packages/9e/de/f8342b68fa9e981d348039954657bdf681b2ab93de27443be51865ffa310/pyOpenSSL-19.1.0-py2.py3-none-any.whl
+    sha256: 621880965a720b8ece2f1b2f54ea2071966ab00e2970ad2ce11d596102063504
+  - type: file
+    url: https://files.pythonhosted.org/packages/ae/e7/d9c3a176ca4b02024debf82342dab36efadfc5776f9c8db077e8f6e71821/pycparser-2.20-py2.py3-none-any.whl
+    sha256: 7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705
+  - type: file
+    url: https://files.pythonhosted.org/packages/03/74/3956721ea1eb4bcf7502a311fdaa60b85bd751de4e57d1943afe9b334141/googleapis_common_protos-1.52.0-py2.py3-none-any.whl
+    sha256: c8961760f5aad9a711d37b675be103e0cc4e9a39327e0d6d857872f698403e24
+  - type: file
+    url: https://files.pythonhosted.org/packages/e7/76/78205e4c92878892610381550a64663a505e2c991e7eb8d61242ecc540a2/google_api_python_client-1.12.4-py2.py3-none-any.whl
+    sha256: 2532de469ce4e6756718976431484cd71c2b518ee6f158f62dea2c0b65285906
+  - type: file
+    url: https://files.pythonhosted.org/packages/4f/a4/879454d49688e2fad93e59d7d4efda580b783c745fd2ec2a3adf87b0808d/pytz-2020.1-py2.py3-none-any.whl
+    sha256: a494d53b6d39c3c6e44c3bec237336e14305e4f29bbf800b599253057fbb79ed
+  - type: file
+    url: https://files.pythonhosted.org/packages/56/aa/4ef5aa67a9a62505db124a5cb5262332d1d4153462eb8fd89c9fa41e5d92/urllib3-1.25.11-py2.py3-none-any.whl
+    sha256: f5321fbe4bf3fefa0efd0bfe7fb14e90909eb62a48ccda331726b4319897dd5e
+  - type: file
+    url: https://files.pythonhosted.org/packages/a7/00/3df031b3ecd5444d572141321537080b40c1c25e1caa3d86cdd12e5e919c/wheel-0.35.1-py2.py3-none-any.whl
+    sha256: 497add53525d16c173c2c1c733b8f655510e909ea78cc0e29d374243544b77a2
