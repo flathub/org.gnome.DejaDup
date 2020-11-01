@@ -14,8 +14,8 @@ sources:
     url: https://files.pythonhosted.org/packages/ac/aa/063eca6a416f397bd99552c534c6d11d57f58f2e94c14780f3bbf818c4cf/monotonic-1.5-py2.py3-none-any.whl
     sha256: 552a91f381532e33cbd07c6a2655a21908088962bb8fa7239ecbcc6ad1140cc7
   - type: file
-    url: https://files.pythonhosted.org/packages/0a/85/5407e87be6aa45503e4578e531108bc70eb8e2df64ba1a578ecb6a92e61d/duplicity-0.8.17.dev18.tar.gz
-    sha256: 9b8187d87608a9ddf23f90dd19e791e5f9079f4dde8a43c7d55e64ac58541dec
+    url: https://files.pythonhosted.org/packages/8b/53/a424f490599f7a52c99b50cf15e1ee6fa584fefd5102ef4b45a59dcf0300/duplicity-0.8.17.dev29.tar.gz
+    sha256: 25c61261ab5c2953039ddf62235c628116f07e7df7f330fb53b45aab04a5fd8d
   - type: file
     url: https://files.pythonhosted.org/packages/18/bd/55eb2d6397b9c0e263af9d091ebdb756b15756029b3cededf6461481bc63/fasteners-0.15-py2.py3-none-any.whl
     sha256: 007e4d2b2d4a10093f67e932e5166722d2eab83b77724156e92ad013c6226574
