@@ -1,0 +1,164 @@
+diff --git a/deja-dup/Background.vala b/deja-dup/Background.vala
+index 97f6828c..76f0a1f2 100644
+--- a/deja-dup/Background.vala
++++ b/deja-dup/Background.vala
+@@ -26,7 +26,7 @@ using GLib;
+ 
+ public class Background : Object
+ {
+-  string get_window_handle(Gtk.Window window)
++  static string get_window_handle(Gtk.Window window)
+   {
+     var gdk_window = window.get_window();
+ #if HAS_X11
+@@ -38,14 +38,14 @@ public class Background : Object
+     return "";
+   }
+ 
+-  public bool request_autostart(Gtk.Widget widget)
++  public static async bool request_autostart(Gtk.Widget widget)
+   {
+     var window = widget.get_toplevel() as Gtk.Window;
+ 
+     string? mitigation;
+     var install_env = DejaDup.InstallEnv.instance();
+-    var allowed = install_env.request_autostart(get_window_handle(window),
+-                                                out mitigation);
++    var allowed = yield install_env.request_autostart(get_window_handle(window),
++                                                      out mitigation);
+ 
+     if (!allowed && mitigation != null)
+       DejaDup.run_error_dialog(window, _("Cannot back up automatically"),
+diff --git a/deja-dup/ConfigAutoBackup.vala b/deja-dup/ConfigAutoBackup.vala
+index cb557ac3..0054a997 100644
+--- a/deja-dup/ConfigAutoBackup.vala
++++ b/deja-dup/ConfigAutoBackup.vala
+@@ -19,17 +19,30 @@ public class ConfigAutoBackup : BuilderWidget
+     var settings = DejaDup.get_settings();
+     settings.bind(DejaDup.PERIODIC_KEY, auto_backup, "active", SettingsBindFlags.GET);
+ 
+-    auto_backup.state_set.connect((state) => {
+-      if (state) {
+-        var bg = new Background();
+-        if (!bg.request_autostart(auto_backup)) {
+-          auto_backup.active = false;
+-          return true; // don't change state, skip default handler
++    auto_backup.state_set.connect(on_state_set);
++  }
++
++  static bool on_state_set(Gtk.Switch auto_switch, bool state)
++  {
++    if (state) {
++      Background.request_autostart.begin(auto_switch, (obj, res) => {
++        if (Background.request_autostart.end(res)) {
++          auto_switch.state = true; // finish state set
++          set_periodic(true);
++        } else {
++          auto_switch.active = false; // flip switch back to unset mode
+         }
+-      }
++      });
++      return true; // delay setting of state
++    }
+ 
+-      settings.set_boolean(DejaDup.PERIODIC_KEY, state);
+-      return false;
+-    });
++    set_periodic(false);
++    return false;
++  }
++
++  static void set_periodic(bool state)
++  {
++    var settings = DejaDup.get_settings();
++    settings.set_boolean(DejaDup.PERIODIC_KEY, state);
+   }
+ }
+diff --git a/libdeja/InstallEnv.vala b/libdeja/InstallEnv.vala
+index e38cfa86..ffe89133 100644
+--- a/libdeja/InstallEnv.vala
++++ b/libdeja/InstallEnv.vala
+@@ -29,7 +29,7 @@ public class DejaDup.InstallEnv : Object
+ 
+   // handle is the string version of a window handle (in flatpak format)
+   // mitigation is a user-presentable explanation of how to fix a failed request
+-  public virtual bool request_autostart(string handle, out string? mitigation) {
++  public virtual async bool request_autostart(string handle, out string? mitigation) {
+     mitigation = null;
+     return true;
+   }
+diff --git a/libdeja/InstallEnvFlatpak.vala b/libdeja/InstallEnvFlatpak.vala
+index 441a22d3..07e2159b 100644
+--- a/libdeja/InstallEnvFlatpak.vala
++++ b/libdeja/InstallEnvFlatpak.vala
+@@ -26,10 +26,10 @@ class DejaDup.InstallEnvFlatpak : DejaDup.InstallEnv
+     return {};
+   }
+ 
+-  public override bool request_autostart(string handle, out string? mitigation)
++  public override async bool request_autostart(string handle, out string? mitigation)
+   {
+     var request = new FlatpakAutostartRequest();
+-    return request.request_autostart(handle, out mitigation);
++    return yield request.request_autostart(handle, out mitigation);
+   }
+ 
+   FileMonitor update_monitor;
+@@ -83,23 +83,20 @@ class DejaDup.FlatpakAutostartRequest : Object
+   const string REQUEST_IFACE = "org.freedesktop.portal.Request";
+ 
+   bool autostart_allowed;
+-  MainLoop loop;
++  SourceFunc resume_callback;
+   DBusConnection connection;
+   uint signal_id;
+ 
+-  public bool request_autostart(string handle, out string? mitigation)
++  public async bool request_autostart(string handle, out string? mitigation)
+   {
+     mitigation = _("Make sure Backups has permission to run in " +
+                    "the background in Settings → Applications → " +
+                    "Backups and try again.");
+ 
+-    loop = new MainLoop(null, false);
++    send_request.begin(handle);
+ 
+-    request_autostart_helper.begin(handle);
+-
+-    // And wait for response (loop is quit in got_response)
+-    loop.run();
+-    loop = null;
++    resume_callback = request_autostart.callback;
++    yield; // resumed by 'got_response'
+ 
+     if (signal_id > 0) {
+       connection.signal_unsubscribe(signal_id);
+@@ -129,15 +126,13 @@ class DejaDup.FlatpakAutostartRequest : Object
+       autostart_allowed = autostart;
+     }
+ 
+-    loop.quit();
++    // resume initial call
++    Idle.add((owned) resume_callback);
+   }
+ 
+-  async void request_autostart_helper(string handle)
++  async void send_request(string handle)
+   {
+-    // When we can rely on xdg-desktop-portal >=1.5.0, we can specify our own handle_token.
+-    // (Before then, there is a bug that prevents it noticing our handle_token.)
+-    // For now, just re-specify the default token.
+-    var token = "t"; // "deja_dup_%u".printf(Random.next_int());
++    var token = "deja_dup_%u".printf(Random.next_int());
+ 
+     var options = new HashTable<string, Variant>(str_hash, str_equal);
+     options.insert("autostart", new Variant.boolean(true));
+@@ -158,7 +153,7 @@ class DejaDup.FlatpakAutostartRequest : Object
+       yield iface.request_background(handle, options);
+     }
+     catch (Error e) { // no portal support :(
+-      loop.quit();
++      Idle.add((owned) resume_callback);
+     }
+   }
+ }

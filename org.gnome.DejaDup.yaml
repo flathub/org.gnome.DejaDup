@@ -53,3 +53,5 @@ modules:
         url: https://gitlab.gnome.org/World/deja-dup.git
         tag: '42.6'
         commit: b74d0bf1ca674a520fe18a33b18f40c7180cc0d2
+      - type: patch
+        path: background-async.patch
