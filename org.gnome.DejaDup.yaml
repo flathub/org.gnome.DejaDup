@@ -41,8 +41,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libhandy.git
-        tag: v0.0.13
-        commit: 7a193d7692c9c76a1a94f17c4d30b585f77d177c
+        tag: 1.0.3
+        commit: 7126d2e8da9dcdeb5751e60ff6a74930804f9637
 
   - name: deja-dup
     buildsystem: meson
@@ -51,7 +51,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        tag: '42.6'
-        commit: b74d0bf1ca674a520fe18a33b18f40c7180cc0d2
-      - type: patch
-        path: background-async.patch
+        tag: '42.7'
+        commit: afa93cbec1a5e123f861dac13b296be1f7d98255
