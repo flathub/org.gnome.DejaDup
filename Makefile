@@ -5,11 +5,11 @@
 
 .PHONY: flatpak
 flatpak:
-	flatpak-builder --repo=$(HOME)/repo \
+	flatpak-builder --install \
+	                --user \
 	                --force-clean \
 	                builddir \
 	                org.gnome.DejaDup.yaml
-	flatpak install --or-update --user -y org.gnome.DejaDup
 
 .PHONY: clean
 clean:
