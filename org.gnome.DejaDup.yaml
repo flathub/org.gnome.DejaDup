@@ -5,7 +5,7 @@
 ---
 app-id: org.gnome.DejaDup
 runtime: org.gnome.Platform
-runtime-version: '41rc'
+runtime-version: '41'
 sdk: org.gnome.Sdk
 command: deja-dup
 
