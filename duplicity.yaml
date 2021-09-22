@@ -1,24 +1,52 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # SPDX-FileCopyrightText: Michael Terry
 ---
-name: python3-duplicity
+name: duplicity
 buildsystem: simple
-build-commands:
-  - pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST}
-    "duplicity"
-sources:
-  - type: file
-    url: https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
-    sha256: 8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced
-  - type: file
-    url: https://files.pythonhosted.org/packages/ac/aa/063eca6a416f397bd99552c534c6d11d57f58f2e94c14780f3bbf818c4cf/monotonic-1.5-py2.py3-none-any.whl
-    sha256: 552a91f381532e33cbd07c6a2655a21908088962bb8fa7239ecbcc6ad1140cc7
-  - type: file
-    url: https://files.pythonhosted.org/packages/40/c9/190477dac2ed93686e1866bdea8400b4394e333be070c9f0c21470cac457/duplicity-0.8.17.tar.gz
-    sha256: 1d1be81c3d4bf0109170dacd5254f91ac8d139a474417de6f100bd7c0a4a4cf8
-  - type: file
-    url: https://files.pythonhosted.org/packages/18/bd/55eb2d6397b9c0e263af9d091ebdb756b15756029b3cededf6461481bc63/fasteners-0.15-py2.py3-none-any.whl
-    sha256: 007e4d2b2d4a10093f67e932e5166722d2eab83b77724156e92ad013c6226574
-  - type: file
-    url: https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz
-    sha256: b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d
+build-commands: []
+modules:
+  - name: python3-flit-core
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "flit-core" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz
+        sha256: b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f
+      - type: file
+        url: https://files.pythonhosted.org/packages/6f/cd/3653de7b1d61f0ef95f2459ac752f23a91dbc84f991787201aa52d0cf1cc/flit_core-3.3.0.tar.gz
+        sha256: b1404accffd6504b5f24eeca9ec5d3c877f828d16825348ba81515fa084bd5f0
+  - name: python3-setuptools-scm
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "setuptools-scm" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz
+        sha256: c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1
+      - type: file
+        url: https://files.pythonhosted.org/packages/75/50/973397c5ba854445bcc396b593b5db1958da6ab8d665b27397daa1497018/tomli-1.2.1.tar.gz
+        sha256: a5b75cb6f3968abb47af1b40c1819dc519ea82bcc065776a866e8d74c5ca9442
+      - type: file
+        url: https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz
+        sha256: 7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7
+      - type: file
+        url: https://files.pythonhosted.org/packages/4b/0d/ecb9595fae02467edba5023eb8a23c688d2b438a6a8d1a9e2b8649faf23d/setuptools_scm-6.3.2.tar.gz
+        sha256: a49aa8081eeb3514eb9728fa5040f2eaa962d6c6f4ec9c32f6c1fba88f88a0f2
+  - name: python3-duplicity
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "duplicity" --no-build-isolation
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/28/e4/2888d41cdbd405828ccdb9a8536c5919939c2f4c6ab9b2ba63e9bd2570d5/fasteners-0.16.3.tar.gz
+        sha256: b1ab4e5adfbc28681ce44b3024421c4f567e705cc3963c732bf1cba3348307de
+      - type: file
+        url: https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz
+        sha256: b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d
+      - type: file
+        url: https://files.pythonhosted.org/packages/bc/1e/74ff54c7bd574811efcf49098fc0536f4bead513b14d56f019de7bb2e20f/duplicity-0.8.18.tar.gz
+        sha256: 6664424e52f8b9abd94ce1a1ef2a5e373877e23030f515dde91ab424d3d456e1

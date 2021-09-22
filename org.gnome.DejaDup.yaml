@@ -5,18 +5,21 @@
 ---
 app-id: org.gnome.DejaDup
 runtime: org.gnome.Platform
-runtime-version: '40'
+runtime-version: '41rc'
 sdk: org.gnome.Sdk
 command: deja-dup
 
 finish-args:
+  - --device=dri
   - --filesystem=host
+  - --filesystem=xdg-run/gvfs
   - --filesystem=xdg-run/gvfsd
   - --filesystem=~/.var/app/
   - --share=ipc
   - --share=network
   - --socket=fallback-x11
   - --socket=wayland
+  - --talk-name=com.feralinteractive.GameMode
   - --talk-name=org.freedesktop.secrets
   - --talk-name=org.gtk.vfs.*
 
@@ -26,20 +29,50 @@ modules:
     sources:
       - type: git
         url: https://github.com/librsync/librsync.git
-        tag: v2.3.1
-        commit: 27f738650c20fef1285f11d85a34e5094a71c06f
+        tag: v2.3.2
+        commit: 42b636d2a65ab6914ea7cac50886da28192aaf9b
 
-  - ./setuptools-scm.yaml
   - ./duplicity.yaml
-  - ./pydrive2.yaml
+  - ./pydrive2.yaml # for google drive
+  - ./requests-oauthlib.yaml # for microsoft onedrive
+
+
+  - ./restic.yaml
+  - ./rclone.yaml # used by restic for cloud support
+
+
+  - name: libsass
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://github.com/lazka/libsass.git
+        commit: 302397c0c8ae2d7ab02f45ea461c2c3d768f248e
+
+  - name: sassc
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://github.com/lazka/sassc.git
+        commit: 82803377c33247265d779af034eceb5949e78354
+
+  - name: libadwaita
+    buildsystem: meson
+    config-opts:
+      - -Dexamples=false
+      - -Dtests=false
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libadwaita.git
+        commit: 198e5593a08d5ae846802d21e9cca02df5559e1b
 
 
   - name: deja-dup
     buildsystem: meson
     config-opts:
       - --buildtype=release
+      - -Denable_restic=true
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        tag: '42.8'
-        commit: ab8b33bbdd5fa30261736935480168e138232454
+        tag: 43.alpha
+        commit: 8ecc9c8ec01dc4d5765cf405e09824eb5f679665
