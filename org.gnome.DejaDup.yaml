@@ -5,7 +5,7 @@
 ---
 app-id: org.gnome.DejaDup
 runtime: org.gnome.Platform
-runtime-version: '40'
+runtime-version: '41'
 sdk: org.gnome.Sdk
 command: deja-dup
 
@@ -41,5 +41,6 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        tag: '42.8'
-        commit: ab8b33bbdd5fa30261736935480168e138232454
+        commit: 96e5fdfc27270ea7f177c02dca3d4f94f9e48f93
+      - type: patch
+        path: screenshots.patch

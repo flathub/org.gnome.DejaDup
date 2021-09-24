@@ -1,0 +1,25 @@
+diff --git a/data/org.gnome.DejaDup.appdata.xml.in b/data/org.gnome.DejaDup.appdata.xml.in
+index 69665e09..e4cdb691 100644
+--- a/data/org.gnome.DejaDup.appdata.xml.in
++++ b/data/org.gnome.DejaDup.appdata.xml.in
+@@ -88,16 +88,16 @@ SPDX-FileCopyrightText: Michael Terry
+   -->
+   <screenshots>
+     <screenshot type="default">
+-      <image type="source" width="822" height="499">https://gitlab.gnome.org/World/deja-dup/raw/@version@/data/screenshots/main.png</image>
++      <image type="source" width="822" height="499">https://gitlab.gnome.org/World/deja-dup/raw/96e5fdfc27270ea7f177c02dca3d4f94f9e48f93/data/screenshots/main.png</image>
+     </screenshot>
+     <screenshot>
+-      <image type="source" width="822" height="499">https://gitlab.gnome.org/World/deja-dup/raw/@version@/data/screenshots/restore.png</image>
++      <image type="source" width="822" height="499">https://gitlab.gnome.org/World/deja-dup/raw/96e5fdfc27270ea7f177c02dca3d4f94f9e48f93/data/screenshots/restore.png</image>
+     </screenshot>
+     <screenshot>
+-      <image type="source" width="552" height="552">https://gitlab.gnome.org/World/deja-dup/raw/@version@/data/screenshots/preferences.png</image>
++      <image type="source" width="552" height="552">https://gitlab.gnome.org/World/deja-dup/raw/96e5fdfc27270ea7f177c02dca3d4f94f9e48f93/data/screenshots/preferences.png</image>
+     </screenshot>
+     <screenshot>
+-      <image type="source" width="552" height="552">https://gitlab.gnome.org/World/deja-dup/raw/@version@/data/screenshots/folders.png</image>
++      <image type="source" width="552" height="552">https://gitlab.gnome.org/World/deja-dup/raw/96e5fdfc27270ea7f177c02dca3d4f94f9e48f93/data/screenshots/folders.png</image>
+     </screenshot>
+   </screenshots>
+ 
