@@ -63,7 +63,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libadwaita.git
-        commit: 198e5593a08d5ae846802d21e9cca02df5559e1b
+        commit: 6b447fde8f270001a0dc29ef59d3e9bf6d32dae9
+        tag: 1.0.0.alpha.4
 
 
   - name: deja-dup
@@ -74,4 +75,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        commit: 9f92c44069645df35550ef51e0ccdc1352ead0b6
+        commit: 1e61feeaf9d55e11dee078a0ce8d36665d5d2a7c
+        tag: 43.beta
