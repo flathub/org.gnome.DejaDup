@@ -12,8 +12,8 @@ modules:
         --prefix=${FLATPAK_DEST} "setuptools-scm" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/6d/6c/9908d4db66488217c665a9a5744319406e41f3c46fa5929a8886f2fe1090/tomli-1.2.2-py3-none-any.whl
-        sha256: f04066f68f5554911363063a30b108d2b5a5b1a010aa8b6132af78489fe3aade
+        url: https://files.pythonhosted.org/packages/e2/9f/5e1557a57a7282f066351086e78f87289a3446c47b2cb5b8b2f614d8fe99/tomli-2.0.0-py3-none-any.whl
+        sha256: b5bde28da1fed24b9bd1d4d2b8cba62300bfb4ec9a6187a957e8ddb9434c5224
       - type: file
         url: https://files.pythonhosted.org/packages/bc/bf/353180314d0e27929703faf240c244f25ae765e01f595a010cafb209ab51/setuptools_scm-6.3.2-py3-none-any.whl
         sha256: 4c64444b1d49c4063ae60bfe1680f611c8b13833d556fd1d6050c0023162a119
