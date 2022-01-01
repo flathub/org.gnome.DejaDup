@@ -8,12 +8,12 @@ flatpak:
 	flatpak-builder --install \
 	                --user \
 	                --force-clean \
-	                builddir \
+	                _build \
 	                org.gnome.DejaDup.yaml
 
 .PHONY: clean
 clean:
-	rm -rf builddir
+	rm -rf _build
 
 .PHONY: lint
 lint:
