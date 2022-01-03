@@ -8,7 +8,7 @@ modules:
   - name: python3-setuptools-scm
     buildsystem: simple
     build-commands:
-      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+      - SETUPTOOLS_USE_DISTUTILS=stdlib pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "setuptools-scm" --no-build-isolation
     sources:
       - type: file
@@ -26,7 +26,7 @@ modules:
   - name: python3-duplicity
     buildsystem: simple
     build-commands:
-      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+      - SETUPTOOLS_USE_DISTUTILS=stdlib pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "duplicity" --no-build-isolation
     sources:
       - type: file
