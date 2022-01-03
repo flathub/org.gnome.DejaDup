@@ -25,6 +25,7 @@ modules:
     build-commands:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "pydrive2" --no-build-isolation
+      - patch -d /app/lib/python3.9/site-packages -p1 < google-version.patch
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/5d/d2/38c15431197c137358968b5d2e17184832a4447d3580b03617824af71020/googleapis_common_protos-1.54.0-py2.py3-none-any.whl
@@ -35,6 +36,8 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/66/e8/edabba76d451d2f82f817d72f0ccddb1cb8dc9dda84596a973dc2ef6f10b/google_api_python_client-2.33.0-py2.py3-none-any.whl
         sha256: 1322d026110bc62eb29a4a25a15895dac51486b30a29b5943bc456318677280b
+      - type: file
+        path: google-version.patch
       - type: file
         url: https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz
         sha256: 920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954

@@ -1,0 +1,48 @@
+commit 83db1d71395e92fb2bd814a31713bd8ba3f412ca
+Author: joinsion <joinsion@gmail.com>
+Date:   Mon Dec 13 23:43:32 2021 +0800
+
+    feat: expose library version at googleapiclient.__version__ (#1623)
+    
+    Co-authored-by: Anthonios Partheniou <partheniou@google.com>
+
+diff --git a/googleapiclient/model.py b/googleapiclient/model.py
+index b023db4dd..3d1f39769 100644
+--- a/googleapiclient/model.py
++++ b/googleapiclient/model.py
+@@ -26,12 +26,12 @@ __author__ = "jcgregorio@google.com (Joe Gregorio)"
+ import json
+ import logging
+ import platform
+-import pkg_resources
+ import urllib
+ 
++from googleapiclient import version as googleapiclient_version
+ from googleapiclient.errors import HttpError
+ 
+-_LIBRARY_VERSION = pkg_resources.get_distribution("google-api-python-client").version
++_LIBRARY_VERSION = googleapiclient_version.__version__
+ _PY_VERSION = platform.python_version()
+ 
+ LOGGER = logging.getLogger(__name__)
+diff --git a/googleapiclient/version.py b/googleapiclient/version.py
+new file mode 100644
+index 000000000..5b915cede
+--- /dev/null
++++ b/googleapiclient/version.py
+@@ -0,0 +1,15 @@
++# Copyright 2021 Google LLC
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#     http://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++
++__version__ = "2.33.0" 
