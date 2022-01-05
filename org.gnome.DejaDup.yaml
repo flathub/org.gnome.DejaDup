@@ -41,6 +41,14 @@ modules:
   - ./rclone.yaml # used by restic for cloud support
 
 
+  - name: libsoup
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libsoup.git
+        commit: fbf69d004d1ef75bd93a10819378030b4c479bb9
+        tag: 3.0.3
+
   - name: pango
     buildsystem: meson
     sources:
@@ -98,4 +106,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        commit: d6798ced82dd0fffb1ecdda8b8632820f1bd517c
+        commit: 8a16c2aa6736bce49f6ade7cc048474afd6db391
+        tag: '43.1'

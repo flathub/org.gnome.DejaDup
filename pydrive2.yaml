@@ -25,7 +25,6 @@ modules:
     build-commands:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
         --prefix=${FLATPAK_DEST} "pydrive2" --no-build-isolation
-      - patch -d /app/lib/python3.9/site-packages -p1 < google-version.patch
     sources:
       - type: file
         url: https://files.pythonhosted.org/packages/5d/d2/38c15431197c137358968b5d2e17184832a4447d3580b03617824af71020/googleapis_common_protos-1.54.0-py2.py3-none-any.whl
@@ -33,11 +32,6 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/7d/6a/28b555d61758098edd4ebc9bd1e5b9281bba27c67c97fec6d180166ba9dd/PyDrive2-1.10.0-py3-none-any.whl
         sha256: 14c239bcd3e6e65b771ad4e2d8f7ca991636c9aec82b730479a60368733a4fbb
-      - type: file
-        url: https://files.pythonhosted.org/packages/66/e8/edabba76d451d2f82f817d72f0ccddb1cb8dc9dda84596a973dc2ef6f10b/google_api_python_client-2.33.0-py2.py3-none-any.whl
-        sha256: 1322d026110bc62eb29a4a25a15895dac51486b30a29b5943bc456318677280b
-      - type: file
-        path: google-version.patch
       - type: file
         url: https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz
         sha256: 920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954
@@ -66,6 +60,9 @@ modules:
         url: https://files.pythonhosted.org/packages/95/de/214830a981892a3e286c3794f41ae67a4495df1108c3da8a9f62159b9a9d/pyasn1_modules-0.2.8-py2.py3-none-any.whl
         sha256: a50b808ffeb97cb3601dd25981f6b016cbb3d31fbf57a8b8a87428e6158d0c74
       - type: file
+        url: https://files.pythonhosted.org/packages/90/81/17c3e97234ee4d9584c642903a1700e8f75581af73cbc4f66cd2f46856b9/google_api_python_client-2.34.0-py2.py3-none-any.whl
+        sha256: 31eab065a8d01409af13632006a0bac4eae2ef02f0539092a4dd9575cdd724f0
+      - type: file
         url: https://files.pythonhosted.org/packages/04/a2/d918dcd22354d8958fe113e1a3630137e0fc8b44859ade3063982eacd2a4/idna-3.3-py3-none-any.whl
         sha256: 84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff
       - type: file
@@ -75,11 +72,11 @@ modules:
         url: https://files.pythonhosted.org/packages/ba/db/721e2f3f32339080153995d16e46edc3a7657251f167ddcb9327e632783b/google_auth_httplib2-0.1.0-py2.py3-none-any.whl
         sha256: 31e49c36c6b5643b57e82617cb3e021e3e1d2df9da63af67252c02fa9c1f4a10
       - type: file
-        url: https://files.pythonhosted.org/packages/47/84/b06f6729fac8108c5fa3e13cde19b0b3de66ba5538c325496dbe39f5ff8e/charset_normalizer-2.0.9-py3-none-any.whl
-        sha256: 1eecaa09422db5be9e29d7fc65664e6c33bd06f9ced7838578ba40d58bdf3721
-      - type: file
         url: https://files.pythonhosted.org/packages/a0/34/895006117f6fce0b4de045c87e154ee4a20c68ec0a4c9a36d900888fb6bc/pyparsing-3.0.6-py3-none-any.whl
         sha256: 04ff808a5b90911829c55c4e26f75fa5ca8a2f5f36aa3a51f68e27033341d3e4
+      - type: file
+        url: https://files.pythonhosted.org/packages/2d/61/08076519c80041bc0ffa1a8af0cbd3bf3e2b62af10435d269a9d0f40564d/requests-2.27.1-py2.py3-none-any.whl
+        sha256: f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d
       - type: file
         url: https://files.pythonhosted.org/packages/37/52/4e40f7513b44671817a92dc566f4a6e8eba65bfc94f79da23186e6c127ce/protobuf-3.19.1.tar.gz
         sha256: 62a8e4baa9cb9e064eb62d1002eca820857ab2138440cb4b3ea4243830f94ca7
@@ -96,11 +93,11 @@ modules:
         url: https://files.pythonhosted.org/packages/62/d5/5f610ebe421e85889f2e55e33b7f9a6795bd982198517d912eb1c76e1a53/pycparser-2.21-py2.py3-none-any.whl
         sha256: 8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9
       - type: file
-        url: https://files.pythonhosted.org/packages/92/96/144f70b972a9c0eabbd4391ef93ccd49d0f2747f4f6a2a2738e99e5adc65/requests-2.26.0-py2.py3-none-any.whl
-        sha256: 6c1246513ecd5ecd4528a0906f910e8f0f9c6b8ec72030dc9fd154dc1a6efd24
-      - type: file
         url: https://files.pythonhosted.org/packages/37/45/946c02767aabb873146011e665728b680884cd8fe70dde973c640e45b775/certifi-2021.10.8-py2.py3-none-any.whl
         sha256: d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569
       - type: file
         url: https://files.pythonhosted.org/packages/81/c0/7461b49cd25aeece13766f02ee576d1db528f1c37ce69aee300e075b485b/uritemplate-4.1.1-py2.py3-none-any.whl
         sha256: 830c08b8d99bdd312ea4ead05994a38e8936266f84b9a7878232db50b044e02e
+      - type: file
+        url: https://files.pythonhosted.org/packages/84/3e/1037abe6498e65d645ce7a22d3402605d49a3b2c7f20c3abb027760da4f0/charset_normalizer-2.0.10-py3-none-any.whl
+        sha256: cb957888737fc0bbcd78e3df769addb41fd1ff8cf950dc9e7ad7793f1bf44455
