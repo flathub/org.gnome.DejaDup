@@ -5,22 +5,22 @@
 ---
 app-id: org.gnome.DejaDup
 runtime: org.gnome.Platform
-runtime-version: '42'
+runtime-version: '43'
 sdk: org.gnome.Sdk
 command: deja-dup
 
 finish-args:
-  - --device=dri
+  - --device=dri # gtk4 wants gl access
   - --filesystem=host
-  - --filesystem=xdg-run/gvfs
-  - --filesystem=xdg-run/gvfsd
-  - --filesystem=~/.var/app/
+  - --filesystem=xdg-run/gvfs # for gvfsd-fuse paths
+  - --filesystem=xdg-run/gvfsd # for gvfsd itself to work
+  - --filesystem=~/.var/app/ # flatpak hides these even with 'host' above
   - --share=ipc
   - --share=network
   - --socket=fallback-x11
   - --socket=wayland
-  - --talk-name=com.feralinteractive.GameMode
-  - --talk-name=org.freedesktop.secrets
+  - --talk-name=com.feralinteractive.GameMode # drop when xdg-desktop-portal 1.16.0 (2022) is everywhere
+  - --talk-name=org.freedesktop.secrets # drop when xdg-desktop-portal 1.5.0 (2019) is everywhere
   - --talk-name=org.gtk.vfs.*
 
 modules:
@@ -49,4 +49,4 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        commit: 9ecf7b11f27f3a71aef2aa6bf60c50e70bd757e9
+        commit: 727b8ee4bda1cfdcbfc5045f28cd48532a694b5d
