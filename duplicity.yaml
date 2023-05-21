@@ -12,8 +12,8 @@ modules:
         --prefix=${FLATPAK_DEST} "setuptools-scm" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/ed/35/a31aed2993e398f6b09a790a181a7927eb14610ee8bbf02dc14d31677f1c/packaging-23.0-py3-none-any.whl
-        sha256: 714ac14496c3e68c99c29b00845f7a2b85f3bb6f1078fd9f72fd20f0570002b2
+        url: https://files.pythonhosted.org/packages/ab/c3/57f0601a2d4fe15de7a553c00adbc901425661bf048f2a22dfc500caf121/packaging-23.1-py3-none-any.whl
+        sha256: 994793af429502c4ea2ebf6bf664629d07c1a9fe974af92966e4b8d2df7edc61
       - type: file
         url: https://files.pythonhosted.org/packages/1d/66/8f42c941be949ef2b22fe905d850c794e7c170a526023612aad5f3a121ad/setuptools_scm-7.1.0-py3-none-any.whl
         sha256: 73988b6d848709e2af142aa48c986ea29592bbcfca5375678064708205253d8e
@@ -30,8 +30,8 @@ modules:
         --prefix=${FLATPAK_DEST} "duplicity" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/15/f5/809a12886e56129dbaf2f9c9f21cce4e830fafe4f24fe84f232630630c5a/duplicity-1.2.2.tar.gz
-        sha256: 0ee03777067049e9713285f25d6fd625c421723af4433533d0c7df9bf8f7a3a3
+        url: https://files.pythonhosted.org/packages/e1/b2/ced09654e4a85dbd9f365aa70eda0e5524cd2456701258b55546cf7c8d67/duplicity-1.2.3.tar.gz
+        sha256: fcbcdea289128d9d0988ed66fa2408196ce940e8029ca5036254bfd2e3f4a568
       - type: file
         url: https://files.pythonhosted.org/packages/bc/a2/7d35ba2c8d9963398fcec49cd814e50a6b920d213928f06fdbbf8aa3289b/fasteners-0.18-py3-none-any.whl
         sha256: 1d4caf5f8db57b0e4107d94fd5a1d02510a450dced6ca77d1839064c1bacf20c
