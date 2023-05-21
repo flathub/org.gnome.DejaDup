@@ -13,9 +13,9 @@ build-commands:
 sources:
   - type: file
     only-arches: [x86_64]
-    url: https://github.com/restic/restic/releases/download/v0.14.0/restic_0.14.0_linux_amd64.bz2
-    sha256: c8da7350dc334cd5eaf13b2c9d6e689d51e7377ba1784cc6d65977bd44ee1165
+    url: https://github.com/restic/restic/releases/download/v0.15.2/restic_0.15.2_linux_amd64.bz2
+    sha256: 44ce3367b0b413ad48757de8e2a1f4e2c30137e7cdc77db64906f3eb7087b78f
   - type: file
     only-arches: [aarch64]
-    url: https://github.com/restic/restic/releases/download/v0.14.0/restic_0.14.0_linux_arm64.bz2
-    sha256: 24c7ca3fe6905b3a493a67237ff081ba9e11abfb27dcb73f18d0a4595926c35d
+    url: https://github.com/restic/restic/releases/download/v0.15.2/restic_0.15.2_linux_arm64.bz2
+    sha256: 1f9d03503d8756311b7904e99aee3460f1ace427aad88f6dcba6a97a9c5a8171

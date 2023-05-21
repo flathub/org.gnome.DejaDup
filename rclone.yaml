@@ -12,9 +12,9 @@ build-commands:
 sources:
   - type: archive
     only-arches: [x86_64]
-    url: https://github.com/rclone/rclone/releases/download/v1.59.2/rclone-v1.59.2-linux-amd64.zip
-    sha256: 81e7be456369f5957713463e3624023e9159c1cae756e807937046ebc9394383
+    url: https://github.com/rclone/rclone/releases/download/v1.62.2/rclone-v1.62.2-linux-amd64.zip
+    sha256: 6c8676dc56e3d2e26358b5bae616ab3ec95e26181cd9b8692e101dcc0fc966a1
   - type: archive
     only-arches: [aarch64]
-    url: https://github.com/rclone/rclone/releases/download/v1.59.2/rclone-v1.59.2-linux-arm64.zip
-    sha256: 19c515af1a70491e5a451f62fdfe41573face748e6d6ccd7cd61732fd1a076d5
+    url: https://github.com/rclone/rclone/releases/download/v1.62.2/rclone-v1.62.2-linux-arm64.zip
+    sha256: e921f0ac3edb45ea8f1c6b8110ed0be263aaedfb6a5ee98968d5836d3f1aadfc
