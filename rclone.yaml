@@ -17,4 +17,4 @@ sources:
   - type: archive
     only-arches: [aarch64]
     url: https://beta.rclone.org/v1.67.0-beta.7794.070cff8a6/rclone-v1.67.0-beta.7794.070cff8a6-linux-arm64.zip
-    sha256: c50a3ab93082f21788f9244393b19f2426edeeb896eec2e3e05ffb2e8727e075
+    sha256: 9141d19ea9e752d5ca52bf4bbd4904db58fb0951ad9093f2fdd4e3804e2ac05a
