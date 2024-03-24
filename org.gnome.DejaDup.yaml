@@ -5,22 +5,22 @@
 ---
 app-id: org.gnome.DejaDup
 runtime: org.gnome.Platform
-runtime-version: '41'
+runtime-version: '46'
 sdk: org.gnome.Sdk
 command: deja-dup
 
 finish-args:
-  - --device=dri
+  - --device=dri # gtk4 wants gl access
   - --filesystem=host
-  - --filesystem=xdg-run/gvfs
-  - --filesystem=xdg-run/gvfsd
-  - --filesystem=~/.var/app/
+  - --filesystem=xdg-run/gvfs # for gvfsd-fuse paths
+  - --filesystem=xdg-run/gvfsd # for gvfsd itself to work
+  - --filesystem=~/.var/app/ # flatpak hides these even with 'host' above
   - --share=ipc
   - --share=network
   - --socket=fallback-x11
   - --socket=wayland
-  - --talk-name=com.feralinteractive.GameMode
-  - --talk-name=org.freedesktop.secrets
+  - --talk-name=com.feralinteractive.GameMode # drop when xdg-desktop-portal 1.16.0 (2022) is everywhere
+  - --talk-name=org.gtk.MountOperationHandler # allows certain gvfs mount prompts on shell-side
   - --talk-name=org.gtk.vfs.*
 
 modules:
@@ -29,51 +29,22 @@ modules:
     sources:
       - type: git
         url: https://github.com/librsync/librsync.git
-        tag: v2.3.2
-        commit: 42b636d2a65ab6914ea7cac50886da28192aaf9b
+        tag: v2.3.4
+        commit: e364852674780e43d578e4239128ff7014190ed3
 
   - ./duplicity.yaml
-  - ./pydrive2.yaml # for google drive
-  - ./requests-oauthlib.yaml # for microsoft onedrive
-
-
+  - ./fasteners.yaml # duplicity doesn't depend on this, though it should
+  - ./rclone.yaml
   - ./restic.yaml
-  - ./rclone.yaml # used by restic for cloud support
-
-
-  - name: libsass
-    buildsystem: meson
-    sources:
-      - type: git
-        url: https://github.com/lazka/libsass.git
-        commit: 302397c0c8ae2d7ab02f45ea461c2c3d768f248e
-
-  - name: sassc
-    buildsystem: meson
-    sources:
-      - type: git
-        url: https://github.com/lazka/sassc.git
-        commit: 82803377c33247265d779af034eceb5949e78354
-
-  - name: libadwaita
-    buildsystem: meson
-    config-opts:
-      - -Dexamples=false
-      - -Dtests=false
-    sources:
-      - type: git
-        url: https://gitlab.gnome.org/GNOME/libadwaita.git
-        commit: 6b447fde8f270001a0dc29ef59d3e9bf6d32dae9
-        tag: 1.0.0.alpha.4
 
 
   - name: deja-dup
     buildsystem: meson
+    builddir: true
     config-opts:
       - --buildtype=release
       - -Denable_restic=true
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        commit: 1e61feeaf9d55e11dee078a0ce8d36665d5d2a7c
-        tag: 43.beta
+        commit: 1ad43cae1d42d086f50fafcd50f9ed4bd389025d
