@@ -1,0 +1,30 @@
+commit c8bf64428f07121db36f32dc5b545a1b6ffd0a96
+Author: Michael Terry <mike@mterry.name>
+Date:   Fri May 17 07:07:35 2024 -0400
+
+    onedrive: fix "unauthorized" upload error by not passing auth
+    
+    After the initial createUploadSession, apparently OneDrive actively
+    dislikes it if you send Authorization headers on the subsequent
+    PUT calls.
+    
+    See their docs:
+    https://learn.microsoft.com/en-us/graph/api/driveitem-createuploadsession?view=graph-rest-1.0#remarks
+    
+    If you do include the Authorization header, you get 401 responses.
+
+diff --git a/duplicity/backends/onedrivebackend.py b/duplicity/backends/onedrivebackend.py
+index 59b63d8c..82937970 100644
+--- a/duplicity/backends/onedrivebackend.py
++++ b/duplicity/backends/onedrivebackend.py
+@@ -177,7 +177,9 @@ class OneDriveBackend(duplicity.backend.Backend):
+                     "Content-Range": f"bytes {int(offset)}-{int(offset + len(chunk) - 1)}/{int(source_size)}",
+                 }
+                 log.Debug(f"PUT {remote_filename} {headers['Content-Range']}")
+-                response = self.http_client.put(uploadUrl, headers=headers, data=chunk, timeout=config.timeout)
++                response = self.http_client.put(
++                    uploadUrl, headers=headers, data=chunk, timeout=config.timeout, withhold_token=True
++                )
+                 response.raise_for_status()
+                 offset += len(chunk)
+ 
