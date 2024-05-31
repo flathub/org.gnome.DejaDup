@@ -1,0 +1,19 @@
+commit dc7181cbaf2a8ba736b67df1cee761eac103a668 (mikix/get-errno)
+Author: Michael Terry <mike@mterry.name>
+Date:   Thu May 23 16:01:46 2024 -0400
+
+    fix:usr: don't raise KeyError if OSError.errno is unrecognized
+
+diff --git a/duplicity/robust.py b/duplicity/robust.py
+index 4453b544..a6d06be1 100644
+--- a/duplicity/robust.py
++++ b/duplicity/robust.py
+@@ -51,7 +51,7 @@ def check_common_error(error_handler, function, args=()):
+         if (
+             not isinstance(exc, EnvironmentError)
+             or hasattr(exc, "errno")
+-            and errno.errorcode[exc.errno]
++            and errno.errorcode.get(exc.errno)
+             in [
+                 "EPERM",
+                 "ENOENT",
