@@ -6,25 +6,8 @@ name: python3-duplicity
 buildsystem: simple
 build-commands:
   - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-    --prefix=${FLATPAK_DEST} "duplicity" --no-build-isolation
-  - patch -d /app/lib/python3.11/site-packages -p1 < onedrive.patch
+    --prefix=${FLATPAK_DEST} "duplicity" --no-build-isolation --no-deps
 sources:
   - type: file
-    url: https://files.pythonhosted.org/packages/56/c1/34f63e68f81481e9a1e276f9a8e185ff869c81e9e4acdfb7ee4994a2592c/duplicity-2.1.4.tar.gz
-    sha256: 9bbe8cb3527b296011c11ce8a8d4323d8562fe532aa70d355305bea2927158e5
-  - type: file
-    url: https://files.pythonhosted.org/packages/61/bf/fd60001b3abc5222d8eaa4a204cd8c0ae78e75adc688f33ce4bf25b7fafa/fasteners-0.19-py3-none-any.whl
-    sha256: 758819cb5d94cdedf4e836988b74de396ceacb8e2794d21f82d131fd9ee77237
-  - type: file
-    url: https://files.pythonhosted.org/packages/ec/1a/610693ac4ee14fcdf2d9bf3c493370e4f2ef7ae2e19217d7a237ff42367d/packaging-23.2-py3-none-any.whl
-    sha256: 8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7
-  - type: file
-    url: https://files.pythonhosted.org/packages/0e/a3/b9a8b0adfe672bf0df5901707aa929d30a97ee390ba651910186776746d2/setuptools_scm-8.0.4-py3-none-any.whl
-    sha256: b47844cd2a84b83b3187a5782c71128c28b4c94cad8bfb871da2784a5cb54c4f
-  - type: file
-    url: https://files.pythonhosted.org/packages/24/21/7d397a4b7934ff4028987914ac1044d3b7d52712f30e2ac7a2ae5bc86dd0/typing_extensions-4.8.0-py3-none-any.whl
-    sha256: 8f92fc8806f9a6b641eaa5318da32b44d401efaac0f6678c9bc448ba3605faa0
-  - type: file
-    path: onedrive.patch
-  - type: file
-    path: errno.patch
+    url: https://files.pythonhosted.org/packages/a3/02/91ff8befa6c438cc673391aa91e942673d08aacead4a17d294f6ae02e722/duplicity-3.0.0.tar.gz
+    sha256: e405c204ba2b4ac9694708d33514556e9ee65faa5c8cf4f461a5553a15fe7a05

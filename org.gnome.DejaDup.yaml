@@ -9,19 +9,27 @@ runtime-version: '46'
 sdk: org.gnome.Sdk
 command: deja-dup
 
+# https://docs.flatpak.org/en/latest/sandbox-permissions.html
 finish-args:
-  - --device=dri # gtk4 wants gl access
+  # Filesystem access
   - --filesystem=host
+  - --filesystem=~/.var/app/ # flatpak hides these even with 'host' above
+  # GTK
+  - --device=dri
+  - --socket=wayland
+  # GVfs
   - --filesystem=xdg-run/gvfs # for gvfsd-fuse paths
   - --filesystem=xdg-run/gvfsd # for gvfsd itself to work
-  - --filesystem=~/.var/app/ # flatpak hides these even with 'host' above
-  - --share=ipc
-  - --share=network
-  - --socket=fallback-x11
-  - --socket=wayland
-  - --talk-name=com.feralinteractive.GameMode # drop when xdg-desktop-portal 1.16.0 (2022) is everywhere
-  - --talk-name=org.freedesktop.secrets # drop when xdg-desktop-portal 1.5.0 (2019) is everywhere
+  - --talk-name=org.gtk.MountOperationHandler # allows certain gvfs mount prompts on shell-side
   - --talk-name=org.gtk.vfs.*
+  # Network access
+  - --share=network
+  - --socket=ssh-auth
+  # X11
+  - --share=ipc
+  - --socket=fallback-x11
+  # Waiting for new xdg-desktop-portal versions to be widespread
+  - --talk-name=com.feralinteractive.GameMode # 1.16.0 (2022)
 
 modules:
   - name: librsync
@@ -29,17 +37,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/librsync/librsync.git
-        tag: v2.3.2
-        commit: 42b636d2a65ab6914ea7cac50886da28192aaf9b
+        tag: v2.3.4
+        commit: e364852674780e43d578e4239128ff7014190ed3
 
   - ./duplicity.yaml
-  - ./pydrive2.yaml # for google drive
-  - ./requests-oauthlib.yaml # for microsoft onedrive
-
-
+  - ./fasteners.yaml
+  - ./rclone.yaml
   - ./restic.yaml
-  - ./rclone.yaml # used by restic for cloud support
-
 
   - name: deja-dup
     buildsystem: meson
@@ -49,4 +53,4 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        commit: 585b723da27fdc6ad5c2a3b27858fdc9056f0038
+        commit: fa6bd34e9f881582fd93fce77976a19e382b687f
