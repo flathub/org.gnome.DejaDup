@@ -1,0 +1,17 @@
+diff --git a/libdeja/BackendRemote.vala b/libdeja/BackendRemote.vala
+index 39bcf524..b7cbe527 100644
+--- a/libdeja/BackendRemote.vala
++++ b/libdeja/BackendRemote.vala
+@@ -203,6 +203,12 @@ public class BackendRemote : BackendFile
+       throw new IOError.FAILED("%s", _("Samba network locations must include both a hostname and a share name."));
+     }
+ 
++    if (root.get_path() == null) {
++      throw new IOError.FAILED("%s", _(
++        "You must first install FUSE support for GVfs, likely provided by the gvfs-fuse package."
++      ));
++    }
++
+     try {
+       yield root.mount_enclosing_volume(MountMountFlags.NONE, mount_op, null);
+     } catch (IOError.ALREADY_MOUNTED e) {

@@ -54,3 +54,5 @@ modules:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
         commit: fa6bd34e9f881582fd93fce77976a19e382b687f
+      - type: patch
+        path: gvfs-fuse.patch
