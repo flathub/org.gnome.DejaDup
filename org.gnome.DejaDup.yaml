@@ -5,7 +5,7 @@
 ---
 app-id: org.gnome.DejaDup
 runtime: org.gnome.Platform
-runtime-version: '46'
+runtime-version: '47'
 sdk: org.gnome.Sdk
 command: deja-dup
 
@@ -40,10 +40,10 @@ modules:
         tag: v2.3.4
         commit: e364852674780e43d578e4239128ff7014190ed3
 
-  - ./duplicity.yaml
-  - ./fasteners.yaml
+  - ./duplicity.json
+  - ./fasteners.json
   - ./rclone.yaml
-  - ./restic.yaml
+  - ./restic.json
 
   - name: deja-dup
     buildsystem: meson
@@ -53,4 +53,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        commit: 9d3c4e8662dd8be852dc074b41ed6fdfdb567567
+        branch: acceptance
+        #commit: 5ae1a3bc9d8b782449f927f265167c79f2cf3384
