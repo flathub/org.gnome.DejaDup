@@ -63,7 +63,7 @@ SPDX-FileCopyrightText: Michael Terry
       "buildsystem": "meson",
       "config-opts": [
         "--buildtype=release",
-        "-Denable_restic=true",
+        "-Denable_restic=true"
       ],
       "sources": [
         {
