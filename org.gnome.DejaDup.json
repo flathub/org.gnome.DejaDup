@@ -7,7 +7,7 @@ SPDX-FileCopyrightText: Michael Terry
 {
   "id": "org.gnome.DejaDup",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "46",
+  "runtime-version": "47",
   "sdk": "org.gnome.Sdk",
   "command": "deja-dup",
 
@@ -69,7 +69,7 @@ SPDX-FileCopyrightText: Michael Terry
         {
           "type": "git",
           "url": "https://gitlab.gnome.org/World/deja-dup.git",
-          "commit": "9d3c4e8662dd8be852dc074b41ed6fdfdb567567"
+          "commit": "3cb532e91a65754d9040dc2f13fbcf353c1befb4"
         }
       ]
     }
