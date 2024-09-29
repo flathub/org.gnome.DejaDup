@@ -1,0 +1,77 @@
+/*
+-*- Mode: JSON; indent-tabs-mode: nil; tab-width: 2 -*-
+
+SPDX-License-Identifier: GPL-3.0-or-later
+SPDX-FileCopyrightText: Michael Terry
+*/
+{
+  "id": "org.gnome.DejaDup",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "47",
+  "sdk": "org.gnome.Sdk",
+  "command": "deja-dup",
+
+  "finish-args": [
+    /* Filesystem access */
+    "--filesystem=host",
+    "--filesystem=~/.var/app/", /* flatpak hides these even with 'host' above */
+
+    /* GTK */
+    "--device=dri",
+    "--socket=wayland",
+
+    /* GVfs */
+    "--filesystem=xdg-run/gvfs", /* for gvfsd-fuse paths */
+    "--filesystem=xdg-run/gvfsd", /* for gvfsd itself to work */
+    "--talk-name=org.gtk.MountOperationHandler", /* allows certain gvfs mount prompts on shell-side */
+    "--talk-name=org.gtk.vfs.*",
+
+    /* Network access */
+    "--share=network",
+    "--socket=ssh-auth",
+
+    /* X11 */
+    "--share=ipc",
+    "--socket=fallback-x11",
+
+    /* Waiting for new xdg-desktop-portal versions to be widespread */
+    "--talk-name=com.feralinteractive.GameMode" /* 1.16.0 (2022) */
+  ],
+
+  "modules": [
+    {
+      "name": "librsync",
+      "buildsystem": "cmake-ninja",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/librsync/librsync.git",
+          "tag": "v2.3.4",
+          "commit": "e364852674780e43d578e4239128ff7014190ed3"
+        }
+      ]
+    },
+
+
+    "./duplicity.json",
+    "./fasteners.json",
+    "./rclone.json",
+    "./restic.json",
+
+    {
+      "name": "deja-dup",
+      "buildsystem": "meson",
+      "config-opts": [
+        "--buildtype=release",
+        "-Denable_restic=true"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/World/deja-dup.git",
+          "commit": "3cb532e91a65754d9040dc2f13fbcf353c1befb4"
+        }
+      ]
+    }
+  ]
+}
