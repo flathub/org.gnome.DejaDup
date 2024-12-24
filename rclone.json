@@ -16,16 +16,16 @@ SPDX-FileCopyrightText: Michael Terry
       "only-arches": [
         "x86_64"
       ],
-      "url": "https://github.com/rclone/rclone/releases/download/v1.68.1/rclone-v1.68.1-linux-amd64.zip",
-      "sha256": "34f34743b1831523cd2e0aff74447b717e2d62fe1b598e91703899e0c0689568"
+      "url": "https://github.com/rclone/rclone/releases/download/v1.68.2/rclone-v1.68.2-linux-amd64.zip",
+      "sha256": "0e6fa18051e67fc600d803a2dcb10ddedb092247fc6eee61be97f64ec080a13c"
     },
     {
       "type": "archive",
       "only-arches": [
         "aarch64"
       ],
-      "url": "https://github.com/rclone/rclone/releases/download/v1.68.1/rclone-v1.68.1-linux-arm64.zip",
-      "sha256": "bd8b4e0923239f80d3a25fe37bea09050038fa8fdbadacd44b8cef2a3944777d"
+      "url": "https://github.com/rclone/rclone/releases/download/v1.68.2/rclone-v1.68.2-linux-arm64.zip",
+      "sha256": "c6e9d4cf9c88b279f6ad80cd5675daebc068e404890fa7e191412c1bc7a4ac5f"
     }
   ]
 }
