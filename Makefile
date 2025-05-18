@@ -9,7 +9,7 @@ flatpak:
 	                --user \
 	                --force-clean \
 	                _build \
-	                org.gnome.DejaDup.yaml
+	                org.gnome.DejaDup.json
 
 .PHONY: clean
 clean:
