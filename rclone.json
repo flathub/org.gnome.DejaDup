@@ -1,0 +1,32 @@
+/*
+-*- Mode: JSON; indent-tabs-mode: nil; tab-width: 2 -*-
+
+SPDX-License-Identifier: GPL-3.0-or-later
+SPDX-FileCopyrightText: Michael Terry
+*/
+{
+  "name": "rclone",
+  "buildsystem": "simple",
+  "build-commands": [
+    "mkdir -p /app/bin",
+    "cp rclone /app/bin/rclone"
+  ],
+  "sources": [
+    {
+      "type": "archive",
+      "only-arches": [
+        "x86_64"
+      ],
+      "url": "https://github.com/rclone/rclone/releases/download/v1.69.2/rclone-v1.69.2-linux-amd64.zip",
+      "sha256": "14aaed7163df57894c96f8aca94757f19065f9cb3cb8a84ff9c33234271e1d69"
+    },
+    {
+      "type": "archive",
+      "only-arches": [
+        "aarch64"
+      ],
+      "url": "https://github.com/rclone/rclone/releases/download/v1.69.2/rclone-v1.69.2-linux-arm64.zip",
+      "sha256": "ae719c9fb1cc90ebebfc85570310307a72fd9d77f26ea089893b64fa6f856f3d"
+    }
+  ]
+}
