@@ -70,7 +70,7 @@ SPDX-FileCopyrightText: Michael Terry
         {
           "type": "git",
           "url": "https://gitlab.gnome.org/World/deja-dup.git",
-          "commit": "edb7f0714db15b1153cae763fe3dc2a61c59d1f4"
+          "commit": "7cc214c56ac8452f5af338272fff0ec9a8879e5a"
         }
       ]
     }
