@@ -8,6 +8,7 @@ SPDX-FileCopyrightText: Michael Terry
   "name": "rclone",
   "buildsystem": "simple",
   "build-commands": [
+    "mkdir -p /app/bin",
     "cp rclone /app/bin/rclone"
   ],
   "sources": [
@@ -16,16 +17,16 @@ SPDX-FileCopyrightText: Michael Terry
       "only-arches": [
         "x86_64"
       ],
-      "url": "https://github.com/rclone/rclone/releases/download/v1.69.1/rclone-v1.69.1-linux-amd64.zip",
-      "sha256": "231841f8d8029ae6cfca932b601b3b50d0e2c3c2cb9da3166293f1c3eae7d79c"
+      "url": "https://github.com/rclone/rclone/releases/download/v1.70.3/rclone-v1.70.3-linux-amd64.zip",
+      "sha256": "7d69057e69385f6514a9684c7eaa424d972096b130284bb34dd967c4ed4f9dad"
     },
     {
       "type": "archive",
       "only-arches": [
         "aarch64"
       ],
-      "url": "https://github.com/rclone/rclone/releases/download/v1.69.1/rclone-v1.69.1-linux-arm64.zip",
-      "sha256": "a03de8f700fcda7a1aef6b568f88d44218b698fb4e1637596c024d341bb24124"
+      "url": "https://github.com/rclone/rclone/releases/download/v1.70.3/rclone-v1.70.3-linux-arm64.zip",
+      "sha256": "1b08be34622f1f9bb9b069a85d036bba822b690790215c18a9418dbaf19505fe"
     }
   ]
 }
