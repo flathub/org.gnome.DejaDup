@@ -7,7 +7,7 @@ SPDX-FileCopyrightText: Michael Terry
 {
   "id": "org.gnome.DejaDup",
   "runtime": "org.gnome.Platform",
-  "runtime-version": "48",
+  "runtime-version": "49beta",
   "sdk": "org.gnome.Sdk",
   "command": "deja-dup",
 
@@ -63,19 +63,6 @@ SPDX-FileCopyrightText: Michael Terry
     "./restic.json",
 
     {
-      "name": "blueprint-compiler",
-      "buildsystem": "meson",
-      "cleanup": ["*"],
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://gitlab.gnome.org/GNOME/blueprint-compiler",
-          "tag": "v0.18.0"
-        }
-      ]
-    },
-
-    {
       "name": "deja-dup",
       "buildsystem": "meson",
       "config-opts": [
@@ -85,7 +72,7 @@ SPDX-FileCopyrightText: Michael Terry
         {
           "type": "git",
           "url": "https://gitlab.gnome.org/World/deja-dup.git",
-          "commit": "58bd37bbad0d7780beb892b6fcbb57c04df51dd8"
+          "commit": "702c6d6d603d805dba7844387c0dad1dbd0e1a64"
         }
       ]
     }

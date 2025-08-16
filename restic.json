@@ -8,6 +8,7 @@ SPDX-FileCopyrightText: Michael Terry
   "name": "restic",
   "buildsystem": "simple",
   "build-commands": [
+    "mkdir -p /app/bin",
     "bzcat restic_*.bz2 > /app/bin/restic",
     "chmod a+x /app/bin/restic"
   ],

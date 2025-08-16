@@ -13,8 +13,8 @@ SPDX-FileCopyrightText: Michael Terry
   "sources": [
     {
       "type": "file",
-      "url": "https://files.pythonhosted.org/packages/22/ce/5f9cb25fc6cb358aa055e003609a241141946599d23ab4e2d550941391a1/duplicity-3.0.5.tar.gz",
-      "sha256": "34fab6cd4e1052b0b96d7750368dbbb149a504ff34401ac8bee5c594f42f4d3b"
+      "url": "https://files.pythonhosted.org/packages/56/e7/6399a29be736641d893a5d24401729e89fe180c18ab001f803780fa9c93c/duplicity-3.0.4.0.tar.gz",
+      "sha256": "a5a6454041b21db1b97033d37b297b301b9c0bf3faa459c89b5eafb5ff7e0103"
     }
   ]
 }
