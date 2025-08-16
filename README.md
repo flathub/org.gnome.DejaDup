@@ -5,6 +5,6 @@ SPDX-FileCopyrightText: Michael Terry
 
 This is the flatpak packaging for deja-dup in flathub.
 
- * [Homepage](https://apps.gnome.org/DejaDup/)
+ * [Homepage](https://dejadup.org/)
  * [Main repo](https://gitlab.gnome.org/World/deja-dup)
 
