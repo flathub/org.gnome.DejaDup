@@ -5,11 +5,11 @@
 
 .PHONY: flatpak
 flatpak:
-	flatpak-builder --install \
+	flatpak run org.flatpak.Builder --install \
 	                --user \
 	                --force-clean \
 	                _build \
-	                org.gnome.DejaDup.json
+	                org.gnome.DejaDup.yaml
 
 .PHONY: clean
 clean:
