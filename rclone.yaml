@@ -1,0 +1,19 @@
+# -*- Mode: YAML; indent-tabs-mode: nil; tab-width: 2 -*-
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: Michael Terry
+---
+name: rclone
+buildsystem: simple
+build-commands:
+- mkdir -p /app/bin
+- cp rclone /app/bin/rclone
+sources:
+- type: archive
+  only-arches: [x86_64]
+  url: https://github.com/rclone/rclone/releases/download/v1.71.0/rclone-v1.71.0-linux-amd64.zip
+  sha256: 3ddbcfd535ef2e6eb00cd006831766537f1fef1c8baeed1ee4632e7bcc699e93
+- type: archive
+  only-arches: [aarch64]
+  url: https://github.com/rclone/rclone/releases/download/v1.71.0/rclone-v1.71.0-linux-arm64.zip
+  sha256: b710ac2ded37261d2cc6ab046dcd644828944524cf1ee7c2b17dd746f0fd8684

@@ -1,0 +1,14 @@
+# -*- Mode: YAML; indent-tabs-mode: nil; tab-width: 2 -*-
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-FileCopyrightText: Michael Terry
+---
+name: python3-duplicity
+buildsystem: simple
+build-commands:
+- pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+  --prefix=${FLATPAK_DEST} "duplicity" --no-build-isolation --no-deps
+sources:
+- type: file
+  url: https://files.pythonhosted.org/packages/02/20/c81f899d34c51760605919b4bae0512fd6e0e481ef4e2a77753762ec81e4/duplicity-3.0.5.1.tar.gz
+  sha256: 06775fa3004e42ef30d2b0adcb8e7c808eafd8998f81e43be4c72648dae72b3e
