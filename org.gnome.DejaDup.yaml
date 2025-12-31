@@ -50,6 +50,7 @@ modules:
 
 - duplicity.yaml
 - fasteners.yaml
+- pexpect.yaml
 - rclone.yaml
 - restic.yaml
 
@@ -60,4 +61,4 @@ modules:
   sources:
   - type: git
     url: https://gitlab.gnome.org/World/deja-dup.git
-    commit: 04266b2fff9d6cceb392a1311c6929508c5e05ce
+    commit: 333ef94fe50cc4801405a4c18fbb8519ab921ab4
