@@ -10,5 +10,5 @@ build-commands:
   --prefix=${FLATPAK_DEST} "duplicity" --no-build-isolation --no-deps
 sources:
 - type: file
-  url: https://files.pythonhosted.org/packages/02/20/c81f899d34c51760605919b4bae0512fd6e0e481ef4e2a77753762ec81e4/duplicity-3.0.5.1.tar.gz
-  sha256: 06775fa3004e42ef30d2b0adcb8e7c808eafd8998f81e43be4c72648dae72b3e
+  url: https://files.pythonhosted.org/packages/7c/5b/ca25e39ace138a15afb0631c6dc1681c3d70b3ebe4edf72e04f5ad768b27/duplicity-3.0.6.3.tar.gz
+  sha256: 56472b3fccadec4ee436df50cf1cd283b77d86227393924c9ebf9d0b55d190f4
