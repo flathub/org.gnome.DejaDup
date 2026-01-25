@@ -10,55 +10,129 @@ sdk: org.gnome.Sdk
 command: deja-dup
 
 finish-args:
-# Filesystem access
-- "--filesystem=host"
-- "--filesystem=~/.var/app/" # flatpak hides these even with 'host' above
-
-# GTK
-- "--device=dri"
-- "--socket=wayland"
-
-# GVfs
-- "--filesystem=xdg-run/gvfs" # for gvfsd-fuse paths
-- "--filesystem=xdg-run/gvfsd" # for gvfsd itself to work
-- "--talk-name=org.gtk.MountOperationHandler" # allows certain gvfs mount prompts on shell-side
-- "--talk-name=org.gtk.vfs.*"
-
-# Mounting via the host's fusermount
-- "--filesystem=xdg-run/deja-dup:create"
-- "--talk-name=org.freedesktop.Flatpak"
-
-# Network access
-- "--share=network"
-- "--socket=ssh-auth"
-
-# X11
-- "--share=ipc"
-- "--socket=fallback-x11"
-
-# Waiting for new xdg-desktop-portal versions to be widespread
-- "--talk-name=com.feralinteractive.GameMode" # 1.16.0 (2022)
+  # Filesystem access
+  - --filesystem=host
+  - --filesystem=~/.var/app/ # flatpak hides these even with 'host' above
+  # GTK
+  - --device=dri
+  - --socket=wayland
+  # GVfs
+  - --filesystem=xdg-run/gvfs # for gvfsd-fuse paths
+  - --filesystem=xdg-run/gvfsd # for gvfsd itself to work
+  - --talk-name=org.gtk.MountOperationHandler # allows certain gvfs mount prompts on shell-side
+  - --talk-name=org.gtk.vfs.*
+  # Mounting via the host's fusermount
+  - --filesystem=xdg-run/deja-dup:create
+  - --talk-name=org.freedesktop.Flatpak
+  # Network access
+  - --share=network
+  - --socket=ssh-auth
+  # X11
+  - --share=ipc
+  - --socket=fallback-x11
+  # Waiting for new xdg-desktop-portal versions to be widespread
+  - --talk-name=com.feralinteractive.GameMode # 1.16.0 (2022)
 
 modules:
-- name: librsync
-  buildsystem: cmake-ninja
-  sources:
-  - type: git
-    url: https://github.com/librsync/librsync.git
-    tag: v2.3.4
-    commit: e364852674780e43d578e4239128ff7014190ed3
+  - name: librsync
+    buildsystem: cmake-ninja
+    sources:
+    - type: git
+      url: https://github.com/librsync/librsync.git
+      tag: v2.3.4
+      commit: e364852674780e43d578e4239128ff7014190ed3
+      x-checker-data:
+        type: git
+        tag-pattern: ^v([\d.]+)$
 
-- duplicity.yaml
-- fasteners.yaml
-- pexpect.yaml
-- rclone.yaml
-- restic.yaml
+  - name: python3-duplicity
+    buildsystem: simple
+    build-commands:
+    - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "duplicity" --no-build-isolation --no-deps
+    sources:
+    - type: file
+      url: https://files.pythonhosted.org/packages/16/96/fc07257297b433c19162764f8c3b8649cf788201890c2563476570e1167e/duplicity-3.0.7.tar.gz
+      sha256: 464245217285012e8e0c74ad3edf16be7ff4801caa5272745f10d93a2a7de44e
+      x-checker-data:
+        type: pypi
+        name: duplicity
+  
+  - name: python3-fasteners
+    buildsystem: simple
+    build-commands:
+    - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "fasteners" --no-build-isolation
+    sources:
+    - type: file
+      url: https://files.pythonhosted.org/packages/2d/18/7881a99ba5244bfc82f06017316ffe93217dbbbcfa52b887caa1d4f2a6d3/fasteners-0.20.tar.gz
+      sha256: 55dce8792a41b56f727ba6e123fcaee77fd87e638a6863cec00007bfea84c8d8
+      x-checker-data:
+        type: pypi
+        name: fasteners
+  
+  - name: python3-pexpect
+    buildsystem: simple
+    build-commands:
+    - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+      --prefix=${FLATPAK_DEST} "pexpect" --no-build-isolation
+    sources:
+    - type: file
+      url: https://files.pythonhosted.org/packages/9e/c3/059298687310d527a58bb01f3b1965787ee3b40dce76752eda8b44e9a2c5/pexpect-4.9.0-py2.py3-none-any.whl
+      sha256: 7236d1e080e4936be2dc3e326cec0af72acf9212a7e1d060210e70a47e253523
+      x-checker-data:
+        type: pypi
+        name: pexpect
+        packagetype: bdist_wheel
+    - type: file
+      url: https://files.pythonhosted.org/packages/22/a6/858897256d0deac81a172289110f31629fc4cee19b6f01283303e18c8db3/ptyprocess-0.7.0-py2.py3-none-any.whl
+      sha256: 4b41f3967fce3af57cc7e94b888626c18bf37a083e3651ca8feeb66d492fef35
+      x-checker-data:
+        type: pypi
+        name: ptyprocess
+        packagetype: bdist_wheel
 
-- name: deja-dup
-  buildsystem: meson
-  config-opts:
-  - "--buildtype=release"
-  sources:
-  - type: git
-    url: https://gitlab.gnome.org/World/deja-dup.git
-    commit: 333ef94fe50cc4801405a4c18fbb8519ab921ab4
+  - name: rclone
+    buildsystem: simple
+    build-options:
+      append-path: /usr/lib/sdk/golang/bin
+    build-commands:
+      - go build -mod=vendor .
+      - install -Dpm0755 -t /app/bin/ rclone
+    sources:
+      - type: archive
+        url: https://github.com/rclone/rclone/archive/refs/tags/v1.72.1.tar.gz
+        sha256: 322c73932b533571880832c0e07abdf9492c7f329b7d1dcdbd2a195fa2635a77
+        x-checker-data:
+          type: anitya
+          project-id: 11750
+          url-template: https://github.com/rclone/rclone/archive/refs/tags/v$version.tar.gz
+      - rclone/go-sources.yml
+
+  - name: restic
+    buildsystem: simple
+    build-options:
+      append-path: /usr/lib/sdk/golang/bin
+    build-commands:
+      - go build -mod=vendor ./cmd/restic
+      - install -Dpm0755 -t /app/bin/ restic
+    sources:
+      - type: archive
+        url: https://github.com/restic/restic/archive/refs/tags/v0.18.1.tar.gz
+        sha256: 4b8e2b6cb20e9707e14b9b9d92ddb6f2e913523754e1f123e2e6f3321e67f7ca
+        x-checker-data:
+          type: anitya
+          project-id: 16643
+          url-template: https://github.com/restic/restic/archive/refs/tags/v$version.tar.gz
+      - restic/go-sources.yml
+
+  - name: deja-dup
+    buildsystem: meson
+    config-opts:
+    - "--buildtype=release"
+    sources:
+    - type: git
+      url: https://gitlab.gnome.org/World/deja-dup.git
+      tag: '49.2'
+      commit: 04266b2fff9d6cceb392a1311c6929508c5e05ce
+      x-checker-data:
+        type: git
+        tag-pattern: ^([\d.]+)$
