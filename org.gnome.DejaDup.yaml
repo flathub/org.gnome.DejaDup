@@ -9,6 +9,8 @@ runtime-version: "49"
 sdk: org.gnome.Sdk
 command: deja-dup
 
+build-options:
+  append-path: /usr/lib/sdk/golang/bin
 finish-args:
   # Filesystem access
   - --filesystem=host
@@ -92,8 +94,6 @@ modules:
 
   - name: rclone
     buildsystem: simple
-    build-options:
-      append-path: /usr/lib/sdk/golang/bin
     build-commands:
       - go build -mod=vendor .
       - install -Dpm0755 -t /app/bin/ rclone
@@ -109,8 +109,6 @@ modules:
 
   - name: restic
     buildsystem: simple
-    build-options:
-      append-path: /usr/lib/sdk/golang/bin
     build-commands:
       - go build -mod=vendor ./cmd/restic
       - install -Dpm0755 -t /app/bin/ restic
