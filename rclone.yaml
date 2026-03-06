@@ -11,9 +11,9 @@ build-commands:
 sources:
 - type: archive
   only-arches: [x86_64]
-  url: https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-amd64.zip
-  sha256: b5c9b2fb6ada8a400c5fc5d48cd112dc1adea21a3b73b03857059374dd8a78d0
+  url: https://github.com/rclone/rclone/releases/download/v1.73.1/rclone-v1.73.1-linux-amd64.zip
+  sha256: e9bad0be2ed85128e0d977bf36c165dd474a705ea950d18e1005cef98119407b
 - type: archive
   only-arches: [aarch64]
-  url: https://github.com/rclone/rclone/releases/download/v1.72.1/rclone-v1.72.1-linux-arm64.zip
-  sha256: 66ce9c7fbdf6ba38991fa2ac193ed051bd6d04aeec693900c848154bf549484f
+  url: https://github.com/rclone/rclone/releases/download/v1.73.1/rclone-v1.73.1-linux-arm64.zip
+  sha256: 8d40785a789612301aa27e5c6eaf8b4c6e7b9af93b3993280f6aab6f42bc1955
