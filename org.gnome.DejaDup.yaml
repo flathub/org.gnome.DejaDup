@@ -7,6 +7,8 @@ id: org.gnome.DejaDup
 runtime: org.gnome.Platform
 runtime-version: "50"
 sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.golang
 command: deja-dup
 
 finish-args:
@@ -39,6 +41,11 @@ finish-args:
 # Waiting for new xdg-desktop-portal versions to be widespread
 - "--talk-name=com.feralinteractive.GameMode" # 1.16.0 (2022)
 
+build-options:
+  append-path: /usr/lib/sdk/golang/bin
+  env:
+    GOBIN: /app/bin
+
 modules:
 - name: librsync
   buildsystem: cmake-ninja
@@ -51,8 +58,26 @@ modules:
 - duplicity.yaml
 - fasteners.yaml
 - pexpect.yaml
-- rclone.yaml
-- restic.yaml
+
+- name: rclone
+  buildsystem: simple
+  build-commands:
+    - go install -mod=vendor
+  sources:
+    - type: git
+      url: https://github.com/rclone/rclone
+      tag: v1.73.3
+    - rclone.go.mod.yml
+
+- name: restic
+  buildsystem: simple
+  build-commands:
+    - go install -mod=vendor ./cmd/restic
+  sources:
+    - type: git
+      url: https://github.com/restic/restic
+      tag: v0.17.3
+    - restic.go.mod.yml
 
 - name: deja-dup
   buildsystem: meson
