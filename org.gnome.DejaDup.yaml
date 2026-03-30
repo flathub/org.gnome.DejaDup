@@ -45,6 +45,7 @@ build-options:
   append-path: /usr/lib/sdk/golang/bin
   env:
     GOBIN: /app/bin
+    GOEXPERIMENT: "nodwarf5" # to quiet debugedit error messages
 
 modules:
 - name: librsync
@@ -62,7 +63,7 @@ modules:
 - name: rclone
   buildsystem: simple
   build-commands:
-    - go install -mod=vendor
+    - go install -mod=vendor -ldflags='-extldflags=-fuse-ld=bfd'
   sources:
     - type: git
       url: https://github.com/rclone/rclone
