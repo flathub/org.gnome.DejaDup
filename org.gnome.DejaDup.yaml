@@ -7,58 +7,91 @@ id: org.gnome.DejaDup
 runtime: org.gnome.Platform
 runtime-version: "50"
 sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.golang
 command: deja-dup
 
 finish-args:
-# Filesystem access
-- "--filesystem=host"
-- "--filesystem=~/.var/app/" # flatpak hides these even with 'host' above
+  # Filesystem access
+  - --filesystem=host
+  - --filesystem=~/.var/app/ # flatpak hides these even with 'host' above
 
-# GTK
-- "--device=dri"
-- "--socket=wayland"
+  # GTK
+  - --device=dri
+  - --socket=wayland
 
-# GVfs
-- "--filesystem=xdg-run/gvfs" # for gvfsd-fuse paths
-- "--filesystem=xdg-run/gvfsd" # for gvfsd itself to work
-- "--talk-name=org.gtk.MountOperationHandler" # allows certain gvfs mount prompts on shell-side
-- "--talk-name=org.gtk.vfs.*"
+  # GVfs
+  # - https://github.com/flatpak/xdg-desktop-portal/discussions/1287 asks for a removable drive
+  #   portal (would it let us identify by UUID?)
+  # - https://github.com/flatpak/xdg-desktop-portal/issues/102 asks for a network mount portal
+  - --filesystem=xdg-run/gvfs # for gvfsd-fuse paths
+  - --filesystem=xdg-run/gvfsd # for gvfsd itself to work
+  - --talk-name=org.gtk.MountOperationHandler # allows certain gvfs mount prompts on shell-side
+  - --talk-name=org.gtk.vfs.*
 
-# Mounting via the host's fusermount
-- "--filesystem=xdg-run/deja-dup:create"
-- "--talk-name=org.freedesktop.Flatpak"
+  # Mounting via the host's fusermount
+  # - https://github.com/flatpak/xdg-desktop-portal/issues/695 asks for a fusermount portal
+  - --filesystem=xdg-run/deja-dup:create
+  - --talk-name=org.freedesktop.Flatpak
 
-# Network access
-- "--share=network"
-- "--socket=ssh-auth"
+  # Network access
+  - --share=network
+  - --socket=ssh-auth
 
-# X11
-- "--share=ipc"
-- "--socket=fallback-x11"
+  # X11
+  - --share=ipc
+  - --socket=fallback-x11
 
-# Waiting for new xdg-desktop-portal versions to be widespread
-- "--talk-name=com.feralinteractive.GameMode" # 1.16.0 (2022)
+  # Waiting for new xdg-desktop-portal versions to be widespread
+  - --talk-name=com.feralinteractive.GameMode # 1.16.0 (2022)
+
+build-options:
+  append-path: /usr/lib/sdk/golang/bin
+  env:
+    GOBIN: /app/bin
+    GOEXPERIMENT: nodwarf5 # to quiet debugedit error messages
 
 modules:
-- name: librsync
-  buildsystem: cmake-ninja
-  sources:
-  - type: git
-    url: https://github.com/librsync/librsync.git
-    tag: v2.3.4
-    commit: e364852674780e43d578e4239128ff7014190ed3
+  - name: librsync
+    buildsystem: cmake-ninja
+    sources:
+    - type: git
+      url: https://github.com/librsync/librsync.git
+      tag: v2.3.4
+      commit: e364852674780e43d578e4239128ff7014190ed3
 
-- duplicity.yaml
-- fasteners.yaml
-- pexpect.yaml
-- rclone.yaml
-- restic.yaml
+  - duplicity.yaml
+  - fasteners.yaml
+  - pexpect.yaml
 
-- name: deja-dup
-  buildsystem: meson
-  config-opts:
-  - "--buildtype=release"
-  sources:
-  - type: git
-    url: https://gitlab.gnome.org/World/deja-dup.git
-    commit: bb4b5cffc6d00f31c0c3fbd88f92e9e29ce0c214
+  - name: rclone
+    buildsystem: simple
+    build-commands:
+      - go install -mod=vendor -ldflags='-extldflags=-fuse-ld=bfd'
+    sources:
+      - type: git
+        url: https://github.com/rclone/rclone
+        tag: v1.73.3
+        commit: 0f6401e57e307f4b3aea6ad9e517ae7f60674f78
+      - rclone.go.mod.yml
+
+  - name: restic
+    buildsystem: simple
+    build-commands:
+      - go install -mod=vendor ./cmd/restic
+    sources:
+      - type: git
+        url: https://github.com/restic/restic
+        tag: v0.17.3
+        commit: bc64921a8ea73dfaeaf4d9b66676a76998e144fc
+      - restic.go.mod.yml
+
+  - name: deja-dup
+    buildsystem: meson
+    builddir: true
+    config-opts:
+      - --buildtype=release
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/World/deja-dup.git
+        commit: bb4b5cffc6d00f31c0c3fbd88f92e9e29ce0c214
