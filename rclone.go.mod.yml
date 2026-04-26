@@ -38,10 +38,10 @@
   type: archive
   url: https://proxy.golang.org/github.com/!azure/go-ntlmssp/@v/v0.0.2-0.20251110135918-10b7b7e7cd26.zip
 - dest: vendor/github.com/FilenCloudDienste/filen-sdk-go
-  sha256: 00b241b081fddf5deebdc989df28ef485856e752d6f2792eb914342f8c8ebd36
+  sha256: 23e7c8810b2a41ecd591fc79cdaa3e41c7c0485c0f30e176530fa10982a2c1b5
   strip-components: 3
   type: archive
-  url: https://proxy.golang.org/github.com/!filen!cloud!dienste/filen-sdk-go/@v/v0.0.37.zip
+  url: https://proxy.golang.org/github.com/!filen!cloud!dienste/filen-sdk-go/@v/v0.0.38.zip
 - dest: vendor/github.com/Files-com/files-sdk-go/v3
   sha256: 0849757733eca5018e3f1a6a6130b8b2fdb079483e23c7616f1c4af57f467875
   strip-components: 4
@@ -88,40 +88,40 @@
   type: archive
   url: https://proxy.golang.org/github.com/atotto/clipboard/@v/v0.1.4.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2
-  sha256: 91aea21c184da2dca0575230da2d7258185c7544ada2619a195d281096cbf758
+  sha256: 22b9ff3e315bbe36a1661152091c4849118b9b92b5f9dcdc4e180d27dbb72508
   strip-components: 3
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/@v/v1.39.6.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/@v/v1.41.5.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/config
-  sha256: 814af5d167ea6926ba2da9da8054f29447f964b94cd940284685dc78652e4a7e
+  sha256: 82287c5cb7cede3f67f567ee5e87a0e4663d632ca518b11eddaaa04b95b032e8
   strip-components: 4
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/config/@v/v1.31.17.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/config/@v/v1.32.8.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/credentials
-  sha256: fec68c105b589405374341a1872b2b2d2f9110dc0d467ae41b8cc9f791b953d3
+  sha256: 6551cd128a9678acc03ff1f223c62cfbcde6f7fb772889b983c4258f325b268a
   strip-components: 4
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/credentials/@v/v1.18.21.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/credentials/@v/v1.19.8.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager
-  sha256: 31bdd3cee447b27321c12a569fec80b36657a8c556aa47dc882910966d93d375
+  sha256: 65fedf86025343eaa73ecb96252c9d9925ff65b4d99d19a532cc4b50e5a46594
   strip-components: 6
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/feature/s3/manager/@v/v1.20.4.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/feature/s3/manager/@v/v1.22.1.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/service/s3
-  sha256: 2930598a086133dc4b4ecd53f2d938464cd9fd502e6608d8ae2ff47f9b6328a5
+  sha256: f76abc6b0310f47bfe986e0ed6eaa31c7ab67b2e19ef260e761fbbf4e0f8dfeb
   strip-components: 5
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/s3/@v/v1.90.0.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/s3/@v/v1.97.3.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/service/sts
-  sha256: 8c0de6e01cfd58db791870982f007277ed6ad81078b4760a838d77be5c80b010
+  sha256: 3e20a31b6d5e56917e0079e6641ea6b9d16e123ed40a08fd97fa56bc57795ca0
   strip-components: 5
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/sts/@v/v1.39.1.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/sts/@v/v1.41.6.zip
 - dest: vendor/github.com/aws/smithy-go
-  sha256: fa8ca95555a0624bef57d4e54cae4fb6c1f731ebb93c0aaea71ead1a6a1ea624
+  sha256: 24861720feaa5169b5d3d2e1911386255b991ac6dca8972205f0d824edb8a51c
   strip-components: 3
   type: archive
-  url: https://proxy.golang.org/github.com/aws/smithy-go/@v/v1.23.2.zip
+  url: https://proxy.golang.org/github.com/aws/smithy-go/@v/v1.24.2.zip
 - dest: vendor/github.com/buengese/sgzip
   sha256: 8df7fb596efd83a7d87d34946bbc37fcd11d1fb11dbe4c5ec17a00ba546160d7
   strip-components: 3
@@ -458,20 +458,20 @@
   type: archive
   url: https://proxy.golang.org/golang.org/x/oauth2/@v/v0.34.0.zip
 - dest: vendor/golang.org/x/sync
-  sha256: 25211fe2cffd8020bb405b9adb7a90f5e06760f2818b8fb2e74aaaa21a66ed9e
+  sha256: 7179d4d68800f6fdcadb9d4bbf11cbb5df9b40360c89305c203fe20723cbd375
   strip-components: 3
   type: archive
-  url: https://proxy.golang.org/golang.org/x/sync/@v/v0.19.0.zip
+  url: https://proxy.golang.org/golang.org/x/sync/@v/v0.20.0.zip
 - dest: vendor/golang.org/x/sys
   sha256: c48084c62177045c1091e3cab99aa03ebb003027435ca8bd36bb851340480a40
   strip-components: 3
   type: archive
   url: https://proxy.golang.org/golang.org/x/sys/@v/v0.41.0.zip
 - dest: vendor/golang.org/x/text
-  sha256: 67a6cab352a4f313d56671618dfff2f82d908a17151dc4ca9b7fbbfd40828134
+  sha256: 2df36ee135211552d1e729d2a2a4b5bbff2bd3a0cc53064151a6e6495e947b32
   strip-components: 3
   type: archive
-  url: https://proxy.golang.org/golang.org/x/text/@v/v0.34.0.zip
+  url: https://proxy.golang.org/golang.org/x/text/@v/v0.35.0.zip
 - dest: vendor/golang.org/x/time
   sha256: 0e2d2e47d107859130c7088346966d99a14ec0f7a42290c4acc0e2cc568e7a81
   strip-components: 3
@@ -593,65 +593,70 @@
   type: archive
   url: https://proxy.golang.org/github.com/appscode/go-querystring/@v/v0.0.0-20170504095604-0126cfb3f1dc.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
-  sha256: 886b1ec016868357cef69f3206fea8dbcaf25a7e7efea5c77ed35e9ee5cfad1b
+  sha256: 7a64a43ec12976b292c20179ecc1ec7318aabc2c33ccab13a3cc927969b6c8bd
   strip-components: 6
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream/@v/v1.7.3.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream/@v/v1.7.8.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
-  sha256: 2956d48a3c799c1c7027a479118157bbddcce84bb0c13e38df71f9a6875ad01a
+  sha256: 8974dc29cb911970258ca7de8d17a4b2939409e35a1405ea257a9729e708d8b0
   strip-components: 6
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/feature/ec2/imds/@v/v1.18.13.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/feature/ec2/imds/@v/v1.18.17.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
-  sha256: c865975b594b46ce4c81514930677ae510a2a6cd1688106fb4abd0b4fbc62a30
+  sha256: e322e8240d136642caf5644b41a2689aa35b34b8918f1f4611b0a04a21bdc492
   strip-components: 5
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/internal/configsources/@v/v1.4.13.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/internal/configsources/@v/v1.4.21.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
-  sha256: d770aba8ff4593801ff91e1e86f1df7c0d7597977c6ed3d29a4f85c58c7ee6b4
+  sha256: 551146eb72605fb130bcc451673d445ef4877de69cdbf3a8c452acb07e1c448d
   strip-components: 6
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2/@v/v2.7.13.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2/@v/v2.7.21.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/internal/ini
   sha256: f34dd5f3521bdb07f657b88348bbafbb68f41d134bcb615356122e56c1117600
   strip-components: 5
   type: archive
   url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/internal/ini/@v/v1.8.4.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/internal/v4a
-  sha256: e21ba35a24312191714b0d6851dd7726ed4be0e6b7df0164cf2f90af70f7f0c5
+  sha256: f7950c2de01ba6f6ec220182ef0abe76672ff41a61778a29f12ce9fba8dd335e
   strip-components: 5
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/internal/v4a/@v/v1.4.13.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/internal/v4a/@v/v1.4.22.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
-  sha256: 55758a09847139083b1a98c54301dd946f90519293fc07c52990ba4b09fb6c05
+  sha256: 558754d94ba1c0cafd668d578e619e7bc4d1c5e70244ea467fbd7f9050c0adda
   strip-components: 6
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding/@v/v1.13.3.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding/@v/v1.13.7.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum
-  sha256: 826c81b2ba64a980459b10d7f88bc89f8513acb239b37c8f81a5e41d19506044
+  sha256: 6090625431bf8e9e0df9f4504a7ad32ca3a600602fc49e0e63a8c4d786c0165e
   strip-components: 6
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/internal/checksum/@v/v1.9.4.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/internal/checksum/@v/v1.9.13.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
-  sha256: e18d434800c2596ee3c8bc27207f5dfe424c5a922f912f58fcb7a251384b4150
+  sha256: 471a97f2ade56621e23b625760bb1a6bc1195624270e6bb7e9f25a8e21520832
   strip-components: 6
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url/@v/v1.13.13.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url/@v/v1.13.21.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
-  sha256: 282b54ff46794477e724b0f46fa606e034458f493e373a35a8a44977b0ec56f9
+  sha256: 2dae9c3770ae9ee204e3c875796791e5a4083bc975fb517b34fb9bc2398a9b4c
   strip-components: 6
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/internal/s3shared/@v/v1.19.13.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/internal/s3shared/@v/v1.19.21.zip
+- dest: vendor/github.com/aws/aws-sdk-go-v2/service/signin
+  sha256: b70883c18bc7dcf196ede9a37f80a61bb85f859d78d081f081f15707b7bb97c9
+  strip-components: 5
+  type: archive
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/signin/@v/v1.0.5.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/service/sso
-  sha256: b409656d72d4ede6b180c75b57d349363f18ce5909bda20a890819ad8add040e
+  sha256: 78fec4cc1c01417f2a6ec033140a80139c26ebceec1cce24fdbebae55b649c65
   strip-components: 5
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/sso/@v/v1.30.1.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/sso/@v/v1.30.9.zip
 - dest: vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
-  sha256: 5130484d6a999aede7b2770610a4d872a71f343fe3e095d3d86395192d33e30a
+  sha256: 89a19709ee641bbe80c6113636c9f002c0100ed514ba6681f7200903c9778787
   strip-components: 5
   type: archive
-  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/ssooidc/@v/v1.35.5.zip
+  url: https://proxy.golang.org/github.com/aws/aws-sdk-go-v2/service/ssooidc/@v/v1.35.14.zip
 - dest: vendor/github.com/bahlo/generic-list-go
   sha256: e773fa812176a62f1d27d7a1e7589683f5e5af2d36628fa6a5a522e59474c504
   strip-components: 3
@@ -1258,20 +1263,20 @@
   type: archive
   url: https://proxy.golang.org/golang.org/x/exp/@v/v0.0.0-20251023183803-a4bb9ffd2546.zip
 - dest: vendor/golang.org/x/image
-  sha256: c6a4c4be91786e226d3b627b8dce3f2f1e3c0366171c621f6c5c8c0469e7c4ec
+  sha256: f494b7080958495072b8e2ea236a068983d97c41d4ee0ab268f282710e831469
   strip-components: 3
   type: archive
-  url: https://proxy.golang.org/golang.org/x/image/@v/v0.32.0.zip
+  url: https://proxy.golang.org/golang.org/x/image/@v/v0.38.0.zip
 - dest: vendor/golang.org/x/mod
-  sha256: c0fcee2c1ef1a0a817e81056342bc6cb8b12d11be1addfe3ba87434a2e3044cf
+  sha256: a5a4c8a9f6700712216df6bc4bc45544494736b5383aebb784fdb2dd0f41f36b
   strip-components: 3
   type: archive
-  url: https://proxy.golang.org/golang.org/x/mod/@v/v0.32.0.zip
+  url: https://proxy.golang.org/golang.org/x/mod/@v/v0.33.0.zip
 - dest: vendor/golang.org/x/tools
-  sha256: 7cc6adbaad471e4a1850cace50c56227f78b06a077f0e9154b27e23e199d7a84
+  sha256: a5671646b2ff8ba9c6cf610a1802842ea597773280fcfdad151091260e8511d7
   strip-components: 3
   type: archive
-  url: https://proxy.golang.org/golang.org/x/tools/@v/v0.41.0.zip
+  url: https://proxy.golang.org/golang.org/x/tools/@v/v0.42.0.zip
 - dest: vendor/google.golang.org/genproto/googleapis/rpc
   sha256: 29f02d8e0e2f6e9cc0ee24abc29989e5e44d168eec35c12046efee3fea201aef
   strip-components: 4

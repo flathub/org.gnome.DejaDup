@@ -55,14 +55,24 @@ modules:
   - name: librsync
     buildsystem: cmake-ninja
     sources:
-    - type: git
-      url: https://github.com/librsync/librsync.git
-      tag: v2.3.4
-      commit: e364852674780e43d578e4239128ff7014190ed3
+      - type: git
+        url: https://github.com/librsync/librsync.git
+        tag: v2.3.4
+        commit: e364852674780e43d578e4239128ff7014190ed3
 
-  - duplicity.yaml
-  - fasteners.yaml
-  - pexpect.yaml
+  # Manually specify duplicity here (plus with --no-deps), rather than use update-python.sh for it,
+  # because it hard-depends on all of its backend dependencies, so flatpak-pip-generator would try
+  # to gather all its deps. Which would be rather annoying for us, as we only need rclone.
+  - name: duplicity
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "duplicity" --no-build-isolation --no-deps
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/16/96/fc07257297b433c19162764f8c3b8649cf788201890c2563476570e1167e/duplicity-3.0.7.tar.gz
+        sha256: 464245217285012e8e0c74ad3edf16be7ff4801caa5272745f10d93a2a7de44e
+  - duplicity.deps.yaml
 
   - name: rclone
     buildsystem: simple
@@ -71,8 +81,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rclone/rclone
-        tag: v1.73.3
-        commit: 0f6401e57e307f4b3aea6ad9e517ae7f60674f78
+        tag: v1.73.5
+        commit: 2c12ca64d451d79252982fcf96b09dff1d55b55e
       - rclone.go.mod.yml
 
   - name: restic
@@ -94,4 +104,4 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        commit: bb4b5cffc6d00f31c0c3fbd88f92e9e29ce0c214
+        commit: 2ca7ac3dc4487e2671934e3a4b5c34b5f645a5b4
