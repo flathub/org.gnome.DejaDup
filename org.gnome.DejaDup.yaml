@@ -70,8 +70,8 @@ modules:
         --prefix=${FLATPAK_DEST} "duplicity" --no-build-isolation --no-deps
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/16/96/fc07257297b433c19162764f8c3b8649cf788201890c2563476570e1167e/duplicity-3.0.7.tar.gz
-        sha256: 464245217285012e8e0c74ad3edf16be7ff4801caa5272745f10d93a2a7de44e
+        url: https://files.pythonhosted.org/packages/ad/00/fe4a82a50ff88d7f0aa0a9f0f1d14297bbe2cf2f1d93d8402c7c002ea2ee/duplicity-3.2.0.2.tar.gz
+        sha256: 3ddf185f5247f62f32aef212f5b97205decfc0391dec849cb6f84590ba1da6c6
   - duplicity.deps.yaml
 
   - name: rclone
@@ -81,8 +81,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rclone/rclone
-        tag: v1.73.5
-        commit: 2c12ca64d451d79252982fcf96b09dff1d55b55e
+        tag: v1.75.1
+        commit: 687d264b689b8c49a67e2e52a8a5e0caa01c04ce
       - rclone.go.mod.yml
 
   - name: restic
@@ -92,8 +92,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/restic/restic
-        tag: v0.17.3
-        commit: bc64921a8ea73dfaeaf4d9b66676a76998e144fc
+        tag: v0.19.1
+        commit: 6aa3a516ce654808a1f28f9fa21e9b7c8e6e90bf
       - restic.go.mod.yml
 
   - name: deja-dup
@@ -104,4 +104,4 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/World/deja-dup.git
-        commit: 2ca7ac3dc4487e2671934e3a4b5c34b5f645a5b4
+        commit: d99c144b708c8808ecb53a2c7828015537342b0d
